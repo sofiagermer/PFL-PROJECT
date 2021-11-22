@@ -1,10 +1,10 @@
 module BigNumber (BigNumber, scanner, output) where
 
-type Positive = Bool
+type Signal = Char
 
 type Digits = [Int]
 
-data BigNumber = BigNumber Positive Digits
+data BigNumber = BigNumber Signal Digits
 
 auxScanner :: String -> [Int]
 auxScanner [] = []
@@ -13,9 +13,9 @@ auxScanner (x : xs) = if fromEnum x >= 48 && fromEnum x <= 57 then (fromEnum x -
 scanner :: String -> BigNumber
 scanner [] = error "Not a number"
 scanner s@(x : xs)
-  | x == '-' = BigNumber False (auxScanner xs)
-  | x == '+' = BigNumber True (auxScanner xs)
-  | otherwise = BigNumber True (auxScanner s)
+  | x == '-' = BigNumber '-' (auxScanner xs)
+  | x == '+' = BigNumber '+' (auxScanner xs)
+  | otherwise = BigNumber '+' (auxScanner s)
 
 intToChar :: Int -> Char
 intToChar i
@@ -35,7 +35,10 @@ auxOutput :: [Int] -> String
 auxOutput = foldr (\x -> (++) [intToChar x]) ""
 
 output :: BigNumber -> String
-output (BigNumber x y) = if x then auxOutput y else "-" ++ auxOutput y
+output (BigNumber x y) = if x == '+' then auxOutput y else "-" ++ auxOutput y
 
 instance Show BigNumber where
   show (BigNumber p d) = output (BigNumber p d)
+
+somaBN :: BigNumber->BigNumber->BigNumber
+somaBN (BigNumber x1 y1) (BigNumber x2 y2) = 
