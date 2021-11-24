@@ -18,9 +18,9 @@ scanner s@(x : xs)
 
 isPositive :: BigNumber -> Bool
 isPositive (Positive d) = True
-isPositive (Negative d) = False 
+isPositive (Negative d) = False
 isNegative :: BigNumber -> Bool
-isNegative (Positive d) = False 
+isNegative (Positive d) = False
 isNegative (Negative d) = True
 
 intToChar :: Int -> Char
@@ -44,6 +44,15 @@ output :: BigNumber -> String
 output (Positive d) = auxOutput d
 output (Negative d) = "-" ++ auxOutput d
 
+-- -------------------------------------------------------------------------------
+-- Função que remove zeros desnecessários iniciais
+removeZeros :: [Int] -> [Int]
+removeZeros lista = removeZerosAux (reverse lista)
+
+removeZerosAux :: [Int] -> [Int]
+removeZerosAux [] = []
+removeZerosAux (x:xs) = if x == 0 then removeZerosAux xs else x : xs
+-- -------------------------------------------------------------------------------
 --Funções auxiliares que devolvem lista maior
 
 listaMaiorAux1 :: [Int] -> [Int] -> Int
@@ -67,28 +76,28 @@ somaAux1 [] [] overflow = [overflow | overflow /= 0]
 somaAux1 el [] overflow = el
 somaAux1 [] el overflow = el
 somaAux1 (x : xs) (y : ys) overflow
-  | (x + y + overflow) < 10 = (x + y + overflow) : somaAux1 xs ys 0
+  | x + y + overflow < 10 = (x + y + overflow) : somaAux1 xs ys 0
   | div (x + y + overflow) 10 > 0 = mod (x + y + overflow) 10 : somaAux1 xs ys (div (x + y + overflow) 10)
   | div (x + y + overflow) 10 == 0 = mod (x + y + overflow) 10 : somaAux1 xs ys (div (x + y + overflow) 10)
   | otherwise = [1]
 
 -- -- por causa do overflow
-somaAux2 :: [Int] -> [Int] -> [Int]
-somaAux2 l1 l2 = reverse (somaAux1 (reverse l1) (reverse l2) 0)
+-- somaAux2 :: [Int] -> [Int] -> [Int]
+-- somaAux2 l1 l2 = reverse (somaAux1 (reverse l1) (reverse l2) 0)
 
 -- -- para quando somamos numeros com quantidades diferentes de dígitos
 somaBNAux :: [Int] -> [Int] -> [Int]
 somaBNAux y1 y2
-  | length y1 > length y2 = somaAux2 y1 (replicate (length y1 - length y2) 0 ++ y2)
-  | length y2 > length y1 = somaAux2 (replicate (length y2 - length y1) 0 ++ y1) y2
-  | otherwise = somaAux2 y1 y2
+  | length y1 > length y2 = somaAux1 y1 (y2 ++ replicate (length y1 - length y2) 0) 0
+  | length y2 > length y1 = somaAux1 (y1 ++ replicate (length y2 - length y1) 0) y2 0
+  | otherwise = somaAux1 y1 y2 0
 
 -- --faz a gestão dos sinais
 somaBN :: BigNumber -> BigNumber -> BigNumber
 somaBN (Positive d1) (Positive d2) = Positive (somaBNAux d1 d2)
 somaBN (Negative d1) (Negative d2) = Negative (somaBNAux d1 d2)
--- somaBN (Positive d1) (Negative d2) = subBN (Positive d1) (Positive d2)
--- somaBN (Negative d1) (Positive d2) = subBN (Positive d2) (Positive d1)
+somaBN (Positive d1) (Negative d2) = subBN (Positive d1) (Positive d2)
+somaBN (Negative d1) (Positive d2) = subBN (Positive d2) (Positive d1)
 
 
 -- -------------------------------------------------------------------------------
@@ -99,51 +108,41 @@ subAux1 el [] overflow = el
 subAux1 [] el overflow = el
 subAux1 (x : xs) (y : ys) overflow
   | x < y = (10 - y - overflow) : subAux1 xs ys 1
-  | (x == y + overflow) && null xs = [] --para não aparecer 0 no início do número
+  | x == y + overflow && null xs = [] --para não aparecer 0 no início do número
   | abs (x - y - overflow) < 10 = (x - y - overflow) : subAux1 xs ys 0
   | otherwise = [1]
 
-subAux2 :: [Int] -> [Int] -> [Int]
-subAux2 l1 l2 = reverse (subAux1 (reverse l1) (reverse l2) 0)
+ -- para quando somamos numeros com quantidades diferentes de dígitos : x -y
+subBNAux :: [Int] -> [Int] -> BigNumber
+subBNAux y1 y2
+ | length y1 > length y2 = Positive (subAux1 y1 ( y2 ++ replicate (length y1 - length y2) 0) 0)
+ | length y2 > length y1 = Negative (subAux1 y2 (y1 ++ replicate (length y2-length y1) 0) 0)
+ | listaMaior y1 y2 == y1 =  Positive  (subAux1 y1 y2 0)
+ | listaMaior y1 y2 == y2 = Negative  (subAux1 y2 y1 0)
+ | otherwise = Positive [] --erro
 
--- -- para quando somamos numeros com quantidades diferentes de dígitos : x -y
--- subBNAux :: BigNumber -> BigNumber -> BigNumber
--- subBNAux (BigNumber x1 y1) (BigNumber x2 y2)
---   | length y1 > length y2 = BigNumber '+' (subAux2 y1 (replicate (length y1 - length y2) 0 ++ y2))
---   | length y2 > length y1 = BigNumber '-' (subAux2 y2 (replicate (length y2-length y1) 0 ++ y1))
---   | listaMaior y1 y2 == y1 =  BigNumber '+' (subAux2 y1 y2)
---   | listaMaior y1 y2 == y2 = BigNumber '-' (subAux2 y2 y1)
---   | otherwise = BigNumber '+'[] --erro
-
--- subBN :: BigNumber -> BigNumber -> BigNumber
--- subBN (BigNumber x1 y1) (BigNumber x2 y2)
---   | x1 == '-' && x2 == '+' = BigNumber '-' (somaBNAux y1 y2)
---   | x1 == '+' && x2 == '-' = BigNumber '+' (somaBNAux y1 y2)
---   | x1 == '+' && x2 == '+' = subBNAux (BigNumber x1 y1) (BigNumber x2 y2)
---   | x1 == '-' && x2 == '-' = subBNAux (BigNumber x2 y2) (BigNumber x1 y1)
---   | otherwise = BigNumber '-' [1, 2, 3, 4]
-
+subBN :: BigNumber -> BigNumber -> BigNumber
+subBN (Negative d1) (Positive d2) = Negative (somaBNAux d1 d2)
+subBN (Positive d1) (Negative d2) = Positive (somaBNAux d1 d2)
+subBN (Positive d1) (Positive d2) = subBNAux d1 d2
+subBN (Negative d1) (Negative d2) = subBNAux d2 d1
 -- -------------------------------------------------------------------------------
 
--- mulAux1 :: Digits -> Int -> Digits
--- mulAux1 xs el = map (* el) xs
+mulAux1 :: [Int] -> Int -> [Int]
+mulAux1 xs el = map (* el) xs
 
--- mulAux2 :: Digits -> Digits -> Int -> Int -> Digits
--- mulAux2 [] [] counter stop = []
--- mulAux2 el [] counter stop = []
--- mulAux2 [] el counter stop = []
--- mulAux2 lista1 lista2 counter 0 = []
--- mulAux2 lista (y : ys) counter stop = replicate counter 0 ++ somaBNAux (mulAux1 lista y) (mulAux2 lista ys (counter + 1) (stop -1))
+mulAux2 :: [Int] -> [Int] -> Int -> Int -> [Int]
+mulAux2 [] [] counter stop = []
+mulAux2 el [] counter stop = []
+mulAux2 [] el counter stop = []
+mulAux2 lista1 lista2 counter 0 = []
+mulAux2 lista (y : ys) counter stop = replicate counter 0 ++ somaBNAux (mulAux1 lista y) (mulAux2 lista ys (counter + 1) (stop -1))
 
--- mulAux :: Digits -> Digits -> Digits
--- mulAux l1 l2 = reverse (mulAux2 (reverse l1) (reverse l2) 0 (length l2))
-
--- mulBN :: BigNumber -> BigNumber -> BigNumber
--- mulBN (BigNumber x1 y1) (BigNumber x2 y2)
---   | x1 == '+' && x2 == '+' = BigNumber '+' (mulAux y1 y2)
---   | x1 == '-' && x2 == '-' = BigNumber '+' (mulAux y1 y2)
---   | otherwise = BigNumber '-' (mulAux y1 y2)
-
+mulBN :: BigNumber -> BigNumber -> BigNumber
+mulBN (Positive d1) (Positive d2) = Positive (mulAux2 d1 d2 0 (length d2))
+mulBN (Negative d1) (Negative d2) = Positive (mulAux2 d1 d2 0 (length d2))
+mulBN (Positive d1) (Negative d2) = Positive (mulAux2 d1 d2 0 (length d2))
+mulBN (Negative d1) (Positive d2) = Positive (mulAux2 d1 d2 0 (length d2))
 ----------------
 
 -- divBN :: BigNumber -> BigNumber -> BigNumber
