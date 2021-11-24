@@ -64,8 +64,8 @@ listaMaiorAux1 l1 l2
 
 listaMaior :: [Int] -> [Int] -> [Int]
 listaMaior l1 l2
-  | listaMaiorAux1 l1 l2 == 1 = l1
-  | listaMaiorAux1 l1 l2 == 2 = l2
+  | listaMaiorAux1 l1 l2 == 1 = l2
+  | listaMaiorAux1 l1 l2 == 2 = l1
   | otherwise = l1
 
 -- -------------------------------------------------------------------------------
@@ -80,10 +80,6 @@ somaAux1 (x : xs) (y : ys) overflow
   | div (x + y + overflow) 10 > 0 = mod (x + y + overflow) 10 : somaAux1 xs ys (div (x + y + overflow) 10)
   | div (x + y + overflow) 10 == 0 = mod (x + y + overflow) 10 : somaAux1 xs ys (div (x + y + overflow) 10)
   | otherwise = [1]
-
--- -- por causa do overflow
--- somaAux2 :: [Int] -> [Int] -> [Int]
--- somaAux2 l1 l2 = reverse (somaAux1 (reverse l1) (reverse l2) 0)
 
 -- -- para quando somamos numeros com quantidades diferentes de dígitos
 somaBNAux :: [Int] -> [Int] -> [Int]
@@ -107,7 +103,7 @@ subAux1 [] [] overflow = [overflow | overflow /= 0]
 subAux1 el [] overflow = el
 subAux1 [] el overflow = el
 subAux1 (x : xs) (y : ys) overflow
-  | x < y = (10 - y - overflow) : subAux1 xs ys 1
+  | x < (y + overflow) = (10 - y - overflow) : subAux1 xs ys 1
   | x == y + overflow && null xs = [] --para não aparecer 0 no início do número
   | abs (x - y - overflow) < 10 = (x - y - overflow) : subAux1 xs ys 0
   | otherwise = [1]
