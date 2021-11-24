@@ -103,7 +103,7 @@ subAux1 [] [] overflow = [overflow | overflow /= 0]
 subAux1 el [] overflow = el
 subAux1 [] el overflow = el
 subAux1 (x : xs) (y : ys) overflow
-  | x < (y + overflow) = (10 - y - overflow) : subAux1 xs ys 1
+  | x < (y + overflow) = ((10+x) - y - overflow) : subAux1 xs ys 1
   | x == y + overflow && null xs = [] --para não aparecer 0 no início do número
   | abs (x - y - overflow) < 10 = (x - y - overflow) : subAux1 xs ys 0
   | otherwise = [1]
