@@ -1,4 +1,4 @@
-module BigNumber (BigNumber, scanner) where
+module BigNumber (BigNumber (Positive, Negative), scanner, output, somaBN, subBN, mulBN, divBN) where
 
 data BigNumber
   = Positive [Int]
@@ -156,8 +156,8 @@ mulBN (Negative d1) (Positive d2) = Positive (mulAux2 d1 d2 0 (length d2))
 
 -- divBN (BigNumber s1 d1) (BigNU)
 
-divisionAux :: BigNumber -> BigNumber -> BigNumber -> (BigNumber, BigNumber)
-divisionAux r d q = if r >= d then divisionAux (subBN r d) d (somaBN q (Positive [1])) else (q, r)
+divBNrecursive :: BigNumber -> BigNumber -> BigNumber -> (BigNumber, BigNumber)
+divBNrecursive r d q = if r >= d then divBNrecursive (subBN r d) d (somaBN q (Positive [1])) else (q, r)
 
 divBN :: BigNumber -> BigNumber -> (BigNumber, BigNumber)
-divBN n d = divisionAux n d (Positive [0])
+divBN n d = divBNrecursive n d (Positive [0])

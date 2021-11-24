@@ -1,21 +1,35 @@
---EXERCÍCIO 1.1
+import BigNumber (BigNumber (Negative, Positive), somaBN, subBN)
+
+--EX 1.1
 fibRec :: (Integral a) => a -> a
+fibRec n =
+  if n <= 1
+    then n
+    else fibRec (n -1) + fibRec (n -2)
 
-fibRec n = if n <= 1 then n
-           else fibRec (n-1) + fibRec(n-2)
+--EX 1.2
 
---EXERCÍCIO 1.2
+fibListaAux :: (Integral a) => [a] -> a
+fibListaAux [0] = 0
+fibListaAux [1] = 1
+fibListaAux [n] = fibListaAux [n -1] + fibListaAux [n -2]
+
 fibLista :: (Integral a) => a -> a
+fibLista n = fibListaAux [n]
 
-fibLista n = fibListaAux[n]
-fibListaAux[0] = 0;
-fibListaAux[1] = 1;
-fibListaAux[n] = fibListaAux[n-1] + fibListaAux[n-2] 
-
--- EXERCÍCIO 1.3
-fibListaInfinitaAux :: [Integer]
-fibListaInfinitaAux = 0 : 1 : [a+b | (a,b)<-zip fibListaInfinitaAux (tail fibListaInfinitaAux)]
+-- EX 1.3
 
 fibListaInfinita :: Int -> Integer
-fibListaInfinita n = fibListaInfinitaAux!! n
+fibListaInfinita n = [fibLista x | x <- [0 ..]] !! n
 
+-- EX 3
+fibRecBN :: BigNumber  -> BigNumber
+fibRecBN n
+  | n == Positive [0] = Positive [0]
+  | n == Positive [1] = Positive [1]
+  | otherwise = somaBN (fibRecBN (subBN n (Positive [1]))) (fibRecBN (subBN n (Positive [2])))
+
+fibListaAuxBN :: [BigNumber] -> BigNumber 
+fibListaAuxBN [Positive [0]] = Positive [0]
+fibListaAuxBN [Positive [1]] = Positive [1]
+fibListaAuxBN [b] = somaBN (fibListaAuxBN [subBN b (Positive [1])]) (fibListaAuxBN [subBN b (Positive [2])])
