@@ -3,7 +3,13 @@ module BigNumber (BigNumber, scanner) where
 data BigNumber
   = Positive [Int]
   | Negative [Int]
-  deriving (Show)
+  deriving (Show, Eq)
+
+instance Ord BigNumber where
+  Negative d1 <= Positive d2 = True
+  Positive d1 <= Negative d2 = False
+  Negative d1 <= Negative d2 = length d1 <= length d2 || reverse d1 <= reverse d2
+  Positive d1 <= Positive d2 = length d1 <= length d2 && reverse d1 <= reverse d2
 
 auxScanner :: String -> [Int]
 auxScanner [] = []
@@ -19,6 +25,7 @@ scanner s@(x : xs)
 isPositive :: BigNumber -> Bool
 isPositive (Positive d) = True
 isPositive (Negative d) = False
+
 isNegative :: BigNumber -> Bool
 isNegative (Positive d) = False
 isNegative (Negative d) = True
@@ -51,21 +58,24 @@ removeZeros lista = removeZerosAux (reverse lista)
 
 removeZerosAux :: [Int] -> [Int]
 removeZerosAux [] = []
-removeZerosAux (x:xs) = if x == 0 then removeZerosAux xs else x : xs
+removeZerosAux (x : xs) = if x == 0 then removeZerosAux xs else x : xs
+
 -- -------------------------------------------------------------------------------
 --Funções auxiliares que devolvem lista maior
 
 listaMaiorAux1 :: [Int] -> [Int] -> Int
 listaMaiorAux1 [] [] = 3
 listaMaiorAux1 l1 l2
-  | head l1 > head l2 = 1
-  | head l2 > head l1 = 2
-  | otherwise = listaMaiorAux1 (tail l1) (tail l2)
+  | length l1 > length l2 = 1
+  | length l2 > length l1 = 2
+  | last l1 > last l2 = 1
+  | last l2 > last l1 = 2
+  | otherwise = listaMaiorAux1 (init l1) (init l2)
 
 listaMaior :: [Int] -> [Int] -> [Int]
 listaMaior l1 l2
-  | listaMaiorAux1 l1 l2 == 1 = l2
-  | listaMaiorAux1 l1 l2 == 2 = l1
+  | listaMaiorAux1 l1 l2 == 1 = l1
+  | listaMaiorAux1 l1 l2 == 2 = l2
   | otherwise = l1
 
 -- -------------------------------------------------------------------------------
@@ -95,7 +105,6 @@ somaBN (Negative d1) (Negative d2) = Negative (somaBNAux d1 d2)
 somaBN (Positive d1) (Negative d2) = subBN (Positive d1) (Positive d2)
 somaBN (Negative d1) (Positive d2) = subBN (Positive d2) (Positive d1)
 
-
 -- -------------------------------------------------------------------------------
 -- --Função que subtrai dois BigNumbers
 subAux1 :: [Int] -> [Int] -> Int -> [Int]
@@ -103,25 +112,26 @@ subAux1 [] [] overflow = [overflow | overflow /= 0]
 subAux1 el [] overflow = el
 subAux1 [] el overflow = el
 subAux1 (x : xs) (y : ys) overflow
-  | x < (y + overflow) = ((10+x) - y - overflow) : subAux1 xs ys 1
+  | x < (y + overflow) = ((10 + x) - y - overflow) : subAux1 xs ys 1
   | x == y + overflow && null xs = [] --para não aparecer 0 no início do número
   | abs (x - y - overflow) < 10 = (x - y - overflow) : subAux1 xs ys 0
   | otherwise = [1]
 
- -- para quando somamos numeros com quantidades diferentes de dígitos : x -y
+-- para quando somamos numeros com quantidades diferentes de dígitos : x -y
 subBNAux :: [Int] -> [Int] -> BigNumber
 subBNAux y1 y2
- | length y1 > length y2 = Positive (subAux1 y1 ( y2 ++ replicate (length y1 - length y2) 0) 0)
- | length y2 > length y1 = Negative (subAux1 y2 (y1 ++ replicate (length y2-length y1) 0) 0)
- | listaMaior y1 y2 == y1 =  Positive  (subAux1 y1 y2 0)
- | listaMaior y1 y2 == y2 = Negative  (subAux1 y2 y1 0)
- | otherwise = Positive [] --erro
+  | length y1 > length y2 = Positive (subAux1 y1 (y2 ++ replicate (length y1 - length y2) 0) 0)
+  | length y2 > length y1 = Negative (subAux1 y2 (y1 ++ replicate (length y2 - length y1) 0) 0)
+  | listaMaior y1 y2 == y1 = Positive (subAux1 y1 y2 0)
+  | listaMaior y1 y2 == y2 = Negative (subAux1 y2 y1 0)
+  | otherwise = Positive [] --erro
 
 subBN :: BigNumber -> BigNumber -> BigNumber
 subBN (Negative d1) (Positive d2) = Negative (somaBNAux d1 d2)
 subBN (Positive d1) (Negative d2) = Positive (somaBNAux d1 d2)
 subBN (Positive d1) (Positive d2) = subBNAux d1 d2
 subBN (Negative d1) (Negative d2) = subBNAux d2 d1
+
 -- -------------------------------------------------------------------------------
 
 mulAux1 :: [Int] -> Int -> [Int]
@@ -139,8 +149,15 @@ mulBN (Positive d1) (Positive d2) = Positive (mulAux2 d1 d2 0 (length d2))
 mulBN (Negative d1) (Negative d2) = Positive (mulAux2 d1 d2 0 (length d2))
 mulBN (Positive d1) (Negative d2) = Positive (mulAux2 d1 d2 0 (length d2))
 mulBN (Negative d1) (Positive d2) = Positive (mulAux2 d1 d2 0 (length d2))
+
 ----------------
 
 -- divBN :: BigNumber -> BigNumber -> BigNumber
 
 -- divBN (BigNumber s1 d1) (BigNU)
+
+divisionAux :: BigNumber -> BigNumber -> BigNumber -> (BigNumber, BigNumber)
+divisionAux r d q = if r >= d then divisionAux (subBN r d) d (somaBN q (Positive [1])) else (q, r)
+
+divBN :: BigNumber -> BigNumber -> (BigNumber, BigNumber)
+divBN n d = divisionAux n d (Positive [0])
