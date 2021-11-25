@@ -1,34 +1,35 @@
-module BigNumber (BigNumber, scanner, output) where
 
---type Positive = Bool
---type Digits = [Int]
-data Positive = False | True
+import Data.Char
 
-data BigNumber = BigNumber Positive Digits
+sofi :: Eq a => a -> [(a,b)] -> Maybe b
+sofi k ((x,v):assocs)
+  | k == x = Just v -- key found
+  | otherwise = sofi k assocs
+sofi k [] = Nothing -- key not found
 
-auxScanner :: String -> [Int]
-auxScanner [] = []
-auxScanner (x : xs) = if fromEnum x >= 48 && fromEnum x <= 57 then (fromEnum x -48) : auxScanner xs else error "Not a valid number"
+phonebook :: [(String, String)]
+phonebook = [ ("Bob", "01788 665242"), ("Fred", "01624 556442"), ("Alice", "01889 985333"), ("Jane", "01732 187565") ]
 
-scanner :: String -> BigNumber
-scanner (x : xs) = if x == '-' then BigNumber False (auxScanner xs) else BigNumber True (auxScanner xs)
+-- valida numero = if numero == 0 = Nothing oterwise numero
 
-intToChar :: Int -> Char
-intToChar i
-  | i == 0 = '0'
-  | i == 1 = '1'
-  | i == 2 = '2'
-  | i == 3 = '3'
-  | i == 4 = '4'
-  | i == 5 = '5'
-  | i == 6 = '6'
-  | i == 7 = '7'
-  | i == 8 = '8'
-  | i == 9 = '9'
-  | otherwise = error "Error converting int to char"
+-- sofia :: Int -> IO ()
 
-auxOutput :: [Int] -> String
-auxOutput = foldr (\x -> (++) [intToChar x]) ""
+-- sofia = 
+  --    do {
+  --      str <- getLine
+  --      let numerador = read str -- converte String -> Int
+  --      if numerador == 0 then do putStrLn "deu merda TAS LOUCA!"
+  --    }
+  --    else do {
+  --      do putStrLn "linda menina inteligente"
+  --    }
+    --    let numerador = read str -- converte String -> Int
+    --    if numerador == 0
+    --      do putStrLn "deu merda TAS LOUCA!"
+    --    else
+    --      do putStrLn "linda menina inteligente"
 
-output :: BigNumber -> String
-output x = if Positive then "+" ++ auxOutput Digits else "-" ++ auxOutput Digits
+safeLog :: (Floating a, Ord a) => a -> Maybe a
+safeLog x
+    | x ==0  = Nothing
+    | otherwise = Just (x)

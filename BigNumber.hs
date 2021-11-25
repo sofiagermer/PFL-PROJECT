@@ -51,6 +51,11 @@ output :: BigNumber -> String
 output (Positive d) = reverse (auxOutput d)
 output (Negative d) = "-" ++ reverse (auxOutput d)
 
+
+-- -------------------------------------------------------------------------------
+getBigNumberDigits :: BigNumber -> [Int]
+getBigNumberDigits (Positive d1) = d1
+getBigNumberDigits (Negative d1) = d1
 -- -------------------------------------------------------------------------------
 --Funções auxiliares que devolvem lista maior
 
@@ -151,3 +156,9 @@ divBNrecursive r d q = if r >= d then divBNrecursive (subBN r d) d (somaBN q (Po
 divBN :: BigNumber -> BigNumber -> (BigNumber, BigNumber)
 divBN n d = divBNrecursive n d (Positive [0])
 
+-- -------------------------------------------------------------------------------
+
+saveDivBN :: BigNumber -> BigNumber -> Maybe(BigNumber,BigNumber)
+saveDivBN numerador denominador
+  | head(getBigNumberDigits(denominador)) == 0 && length(getBigNumberDigits(denominador)) == 1 = Nothing
+  | otherwise = Just (divBN numerador denominador)
