@@ -109,6 +109,8 @@ subAux1 (x : xs) (y : ys) overflow
 -- para quando somamos numeros com quantidades diferentes de dígitos : x -y
 subBNAux :: [Int] -> [Int] -> BigNumber
 subBNAux y1 y2
+  | length y1 > length y2 = Positive (subAux1 y1 (y2 ++ replicate (length y1 - length y2) 0) 0)
+  | length y2 > length y1 = Negative (subAux1 y2 (y1 ++ replicate (length y2 - length y1) 0) 0)
   | listaMaior y1 y2 == y1 = Positive (subAux1 y1 y2 0)
   | listaMaior y1 y2 == y2 = Negative (subAux1 y2 y1 0)
   | otherwise = Positive []
