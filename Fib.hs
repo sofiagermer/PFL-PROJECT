@@ -1,4 +1,4 @@
-import BigNumber (BigNumber (Negative, Positive), somaBN, subBN)
+import BigNumber (BigNumber (Negative, Positive), somaBN, subBN,output)
 
 --EX 1.1
 fibRec :: (Integral a) => a -> a
@@ -33,3 +33,4 @@ fibListaAuxBN :: [BigNumber] -> BigNumber
 fibListaAuxBN [Positive [0]] = Positive [0]
 fibListaAuxBN [Positive [1]] = Positive [1]
 fibListaAuxBN [b] = somaBN (fibListaAuxBN [subBN b (Positive [1])]) (fibListaAuxBN [subBN b (Positive [2])])
+

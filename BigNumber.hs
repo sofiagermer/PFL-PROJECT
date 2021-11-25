@@ -18,9 +18,9 @@ auxScanner (x : xs) = if fromEnum x >= 48 && fromEnum x <= 57 then (fromEnum x -
 scanner :: String -> BigNumber
 scanner [] = error "Not a number"
 scanner s@(x : xs)
-  | x == '-' = Negative (auxScanner xs)
-  | x == '+' = Positive (auxScanner xs)
-  | otherwise = Positive (auxScanner s)
+  | x == '-' = Negative (reverse (auxScanner xs))
+  | x == '+' = Positive (reverse (auxScanner xs))
+  | otherwise = Positive (reverse (auxScanner s))
 
 isPositive :: BigNumber -> Bool
 isPositive (Positive d) = True
@@ -48,8 +48,8 @@ auxOutput :: [Int] -> String
 auxOutput = foldr (\x -> (++) [intToChar x]) ""
 
 output :: BigNumber -> String
-output (Positive d) = auxOutput d
-output (Negative d) = "-" ++ auxOutput d
+output (Positive d) = reverse (auxOutput d)
+output (Negative d) = "-" ++ reverse (auxOutput d)
 
 -- -------------------------------------------------------------------------------
 --Funções auxiliares que devolvem lista maior
@@ -150,5 +150,4 @@ divBNrecursive r d q = if r >= d then divBNrecursive (subBN r d) d (somaBN q (Po
 
 divBN :: BigNumber -> BigNumber -> (BigNumber, BigNumber)
 divBN n d = divBNrecursive n d (Positive [0])
-
 
