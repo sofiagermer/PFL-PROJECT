@@ -161,5 +161,6 @@ divBN n d = divBNrecursive n d (Positive [0])
 
 saveDivBN :: BigNumber -> BigNumber -> Maybe(BigNumber,BigNumber)
 saveDivBN numerador denominador
-  | head(getBigNumberDigits(denominador)) == 0 && length(getBigNumberDigits(denominador)) == 1 = Nothing
+  | head(getBigNumberDigits denom inador) == 0 && length(getBigNumberDigits(denominador)) == 1 = Nothing
   | otherwise = Just (divBN numerador denominador)
+
