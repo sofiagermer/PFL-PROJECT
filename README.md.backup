@@ -12,7 +12,7 @@
 > Resultado Negativo e é efetuada a soma ao respetivo valor absoluto do BigNumber
 >![2](screenshots/somaBN/soma2.png)
 > 3. Soma de 1 número Positivo com 1 número Negativo
-> É efetuada a subtração do valor absoluto do BigNumber Positivo pelo BigNumber Negativo
+> É efetuada a subtração do BigNumber Positivo pelo BigNumber Negativo, considerando 
 >![3](screenshots/somaBN/soma3.png)
 > 4. Soma de 2 número Negativos
 >![4](screenshots/somaBN/soma4.png)
@@ -25,7 +25,8 @@
 > 7. Soma de números com número igual de dígitos
 >![7](screenshots/somaBN/soma7.png)
 
-##### Soma 
+##### Soma
+ 
 #### SUBTRAÇÃO
 
 ##### Sinais

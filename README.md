@@ -7,7 +7,7 @@
 ##### Sinais
 > **1. Soma de 2 dígitos Positivos**
 > Resultado Positivo e é efetuada a soma ao respetivo valor absoluto do BigNumber
->![1](screenshots/somaBN/soma1.png)  
+> [\\]![1](screenshots/somaBN/soma1.png)  
 > 2. Soma de 1 número Negativo com 1 número Negativo
 > Resultado Negativo e é efetuada a soma ao respetivo valor absoluto do BigNumber
 >![2](screenshots/somaBN/soma2.png)
@@ -25,7 +25,8 @@
 > 7. Soma de números com número igual de dígitos
 >![7](screenshots/somaBN/soma7.png)
 
-##### Soma 
+##### Soma
+ 
 #### SUBTRAÇÃO
 
 ##### Sinais
