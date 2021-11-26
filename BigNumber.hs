@@ -83,7 +83,7 @@ somaBNAux1 el [] overflow = el
 somaBNAux1 [] el overflow = el
 somaBNAux1 (x : xs) (y : ys) overflow
   | x + y + overflow < 10 = (x + y + overflow) : somaBNAux1 xs ys 0
-  | div (x + y + overflow) 10 > 0 = mod (x + y + overflow) 10 : somaBNAux1 xs ys (div (x + y + overflow) 10) 
+  | div (x + y + overflow) 10 > 0 = mod (x + y + overflow) 10 : somaBNAux1 xs ys (div (x + y + overflow) 10)
   | otherwise = []
 
 -- -- para quando somamos numeros com quantidades diferentes de dígitos
@@ -122,10 +122,10 @@ subBNAux y1 y2
   | otherwise = Positive []
 
 subBN :: BigNumber -> BigNumber -> BigNumber
-subBN (Negative d1) (Positive d2) = Negative (somaBNAux d1 d2)
 subBN (Positive d1) (Negative d2) = Positive (somaBNAux d1 d2)
-subBN (Positive d1) (Positive d2) = if (Positive d1) == (Positive d2) then Positive [0] else subBNAux d1 d2
-subBN (Negative d1) (Negative d2) = if (Positive d1) == (Positive d2) then Positive [0] else subBNAux d2 d1
+subBN (Negative d1) (Positive d2) = Negative (somaBNAux d1 d2)
+subBN (Positive d1) (Positive d2) = if Positive d1 == Positive d2 then Positive [0] else subBNAux d1 d2
+subBN (Negative d1) (Negative d2) = if Positive d1 == Positive d2 then Positive [0] else subBNAux d2 d1
 
 -- -------------------------------------------------------------------------------
 
@@ -137,7 +137,7 @@ mulAux2 [] [] counter stop = []
 mulAux2 el [] counter stop = []
 mulAux2 [] el counter stop = []
 mulAux2 lista1 lista2 counter 0 = []
-mulAux2 lista (y : ys) counter stop = replicate counter 0 ++ somaBNAux (mulAux1 lista y) (mulAux2 lista ys (counter + 1) (stop -1)) 
+mulAux2 lista (y : ys) counter stop = replicate counter 0 ++ somaBNAux (mulAux1 lista y) (mulAux2 lista ys (counter + 1) (stop -1))
 
 mulBN :: BigNumber -> BigNumber -> BigNumber
 mulBN (Positive d1) (Positive d2) = Positive (mulAux2 d1 d2 0 (length d2))
