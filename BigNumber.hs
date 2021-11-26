@@ -84,6 +84,7 @@ somaBNAux1 [] el overflow = el
 somaBNAux1 (x : xs) (y : ys) overflow
   | x + y + overflow < 10 = (x + y + overflow) : somaBNAux1 xs ys 0
   | div (x + y + overflow) 10 > 0 = mod (x + y + overflow) 10 : somaBNAux1 xs ys (div (x + y + overflow) 10) 
+  | otherwise = []
 
 -- -- para quando somamos numeros com quantidades diferentes de dígitos
 somaBNAux :: [Int] -> [Int] -> [Int]
