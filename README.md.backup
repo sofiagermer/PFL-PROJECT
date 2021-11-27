@@ -5,19 +5,22 @@
 #### SOMA
 
 ##### Sinais
-> <p> **1. Soma de 2 dígitos Positivos** </p>
-> <p>Resultado Positivo e é efetuada a soma ao respetivo valor absoluto do BigNumber </p>
-> <p>**2. Soma de 1 número Negativo com 1 número Negativo** </p>
-> <p>Resultado Negativo e é efetuada a soma ao respetivo valor absoluto do BigNumber
-> <p>**3. Soma de 1 número Positivo com 1 número Negativo**
-> <p>É efetuada a subtração do BigNumber Positivo pelo BigNumber Negativo, considerando 
-> <p>4. Soma de 2 número Negativos
+<p> **1. Soma de 2 dígitos Positivos** </p>
+<p>Resultado Positivo e é efetuada a soma ao respetivo valor absoluto do BigNumber </p>
+<p>**2. Soma de 1 número Negativo com 1 número Negativo** </p>
+<p>Resultado Negativo e é efetuada a soma ao respetivo valor absoluto do BigNumber </p>
+<p>**3. Soma de 1 número Positivo com 1 número Negativo** </p>
+<p>É efetuada a subtração do BigNumber Positivo pelo BigNumber Negativo, considerando </p>
+<p>4. Soma de 2 número Negativos
 
 ##### Soma de números com quantidades diferentes de dígitos
-> **5. Soma de número x com número y , onde x tem mais dígitos**  
-> Enchemos o número y com zeros 
-> **6. Soma de número x com número y , onde y tem mais dígitos**
-> **7. Soma de números com número igual de dígitos**
+> <p> **5. Soma de número x com número y , onde x tem mais dígitos** </p> 
+> <p> Enchemos o número y com zeros não significativos de forma a ambos ficarem com o mesmo número de dígitos. </p>   
+> <p> Subtração efetuada normalmente</p>
+> <p> **6. Soma de número x com número y , onde y tem mais dígitos**  </p>
+> <p> Enchemos o número x com zeros não significativos de forma a ambos ficarem com o mesmo número de dígitos.   </p>
+> <p> Subtração efetuada normalmente</p>
+> <p> **7. Soma de números com número igual de dígitos**</p>
 
 ##### Resultado da soma tem número súperior de dígitos a qualquer um dos números
 ##### Soma
@@ -25,18 +28,26 @@
 #### SUBTRAÇÃO
 
 ##### Sinais
-> 1. Subtração de um dígito Negativo por um Positivo
-> 2. Subtração de um dígito Positivo por um Negativo
-> 3. Soma de 1 dígito Positivo com 1 dígito Negativo
-> 4. Soma de 2 dígitos Negativos
+> <p> __1. Subtração de um BigNumber Positivo por um Negativo__  </p> 
+> <p>  __2. Subtração de um dígito Positivo por um Negativo__  </p> 
+> <p>  __3. Soma de 1 dígito Positivo com 1 dígito Negativo__ </p> 
+> <p> __4. Soma de 2 dígitos Negativos__ </p> 
+> 
+##### Quando o resultado da subtração é 0
+**1. Subtração denúmeros com si
+
+##### Quando o valore absoluto dos BigNumbers é Diferente
+
+
 
 ##### Diminuição das casas 
 
 #### MULTIPLICAÇÃO
 ##### Sinais
-> 1. Subtração de números com o mesmo sinal
+> __1. Multiplicação de BigNumbers com o mesmo sinal__
 > Resultado tem sinal Positivo e é efetuada a multiplicação do valor absoluto do BigNumber
-
+> __1. Multiplicação de BigNumbers com o mesmo sinal__
+> Resultado tem sinal Positivo e é efetuada a multiplicação do valor absoluto do BigNumber
 
 ### EXPLICAÇÃO SUNCINTA DE CADA FUNÇÃO
 
@@ -51,5 +62,3 @@ e verificando qual o maior número que cada uma aceita como argumento.`
 | ---------------- |-------------------- |
 | Sofia Germer     | up201907461@up.pt   |
 | Miguel Lopes     | up201704590@up.pt   |
-
-> [\\]![1](screenshots/somaBN/soma1.png)  
