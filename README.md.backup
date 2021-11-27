@@ -22,12 +22,18 @@
 ##### Soma de números com quantidades diferentes de dígitos
 > **5. Soma de número x com número y , onde x tem mais dígitos** 
 > 
-> Enchemos o número y com zeros não significativos de forma a ambos ficarem com o mesmo número de dígitos.    
+> Enchemos o número y com zeros não significativos de forma a ambos ficarem com o mesmo número de dígitos
+>    
 > Subtração efetuada normalmente
+> 
 > **6. Soma de número x com número y , onde y tem mais dígitos**  
-> Enchemos o número x com zeros não significativos de forma a ambos ficarem com o mesmo número de dígitos.  
+> 
+> Enchemos o número x com zeros não significativos de forma a ambos ficarem com o mesmo número de dígitos.
+> 
 > Subtração efetuada normalmente
+> 
 > **7. Soma de números com número igual de dígitos**
+> 
 
 ##### Resultado da soma tem número súperior de dígitos a qualquer um dos números
 ##### Soma

@@ -1,7 +1,7 @@
 # PFL-PROJECT
 
 ### CASOS DE TESTE
-
+------------------------------------------------
 #### SOMA
 
 ##### Sinais
@@ -70,8 +70,11 @@ Neste caso, não se segue para a função auxiliar para calcular normalmente a s
 #### MULTIPLICAÇÃO
 ##### Sinais
 > __1. Multiplicação de BigNumbers com o mesmo sinal__
+> 
 > Resultado tem sinal Positivo e é efetuada a multiplicação do valor absoluto do BigNumber
+> 
 > __1. Multiplicação de BigNumbers com o mesmo sinal__
+> 
 > Resultado tem sinal Positivo e é efetuada a multiplicação do valor absoluto do BigNumber
 
 ### EXPLICAÇÃO SUNCINTA DE CADA FUNÇÃO
