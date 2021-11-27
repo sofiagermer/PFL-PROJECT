@@ -5,9 +5,9 @@
 #### SOMA
 
 ##### Sinais
-<p> **1. Soma de 2 dígitos Positivos** </p>
-<p>Resultado Positivo e é efetuada a soma ao respetivo valor absoluto do BigNumber </p>
-<p>**2. Soma de 1 número Negativo com 1 número Negativo** </p>
+> **1. Soma de 2 dígitos Positivos** </p>
+>Resultado Positivo e é efetuada a soma ao respetivo valor absoluto do BigNumber 
+**2. Soma de 1 número Negativo com 1 número Negativo** </p>
 <p>Resultado Negativo e é efetuada a soma ao respetivo valor absoluto do BigNumber </p>
 <p>**3. Soma de 1 número Positivo com 1 número Negativo** </p>
 <p>É efetuada a subtração do BigNumber Positivo pelo BigNumber Negativo, considerando </p>
@@ -25,25 +25,30 @@
 ##### Resultado da soma tem número súperior de dígitos a qualquer um dos números
 ##### Soma
  
-#### SUBTRAÇÃO
+#### 2 . SUBTRAÇÃO
 
-##### Sinais
+##### 2.1 Sinais
 > __1. Subtração de um BigNumber Positivo por um Negativo__  
 > 
 > Neste caso o sinal da operação é Positivo e é efetuada a soma dos valores absolutos dos BigNumbers
 > 
-> __2. Subtração de um dígito Positivo por um Negativo__  
+> __2. Subtração de um BigNumber Positivo por um Negativo__  
+> 
 > Neste caso o sinal da operação é Negativo e é efetuada a soma dos valores absolutos dos BigNumbers
 > 
-> __3. Soma de 1 dígito Positivo com 1 dígito Negativo__ 
+> __3. Soma de 1 BigNumber Positivo com 1 dígito Negativo__ 
 > 
-> __4. Soma de 2 dígitos Negativos__ </p> 
+> Quando o caso 2.2 não se aplica, procedimento 2.3 é aplicado 
 > 
-##### Quando o resultado da subtração é 0
+> __4. Soma de 2 BigNumber Negativos__ 
+> 
+> Quando o caso 2.2 não se aplica, procedimento 2.3 é aplicado 
+
+##### 2.2 Quando o resultado da subtração é 0
 **1. Subtração de BigNumbers com sinal e valor absoluto iguais**  
 Neste caso, não se segue para a função auxiliar para calcular normalmente a subtração e devolve- se simplesmente Positive [0].
 
-##### Quando o valore absoluto dos BigNumbers é Diferente
+##### 2.3 Quando o valore absoluto dos BigNumbers é Diferente
 
 
 

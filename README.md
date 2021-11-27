@@ -5,22 +5,29 @@
 #### SOMA
 
 ##### Sinais
-<p> **1. Soma de 2 dígitos Positivos** </p>
-<p>Resultado Positivo e é efetuada a soma ao respetivo valor absoluto do BigNumber </p>
-<p>**2. Soma de 1 número Negativo com 1 número Negativo** </p>
-<p>Resultado Negativo e é efetuada a soma ao respetivo valor absoluto do BigNumber </p>
-<p>**3. Soma de 1 número Positivo com 1 número Negativo** </p>
-<p>É efetuada a subtração do BigNumber Positivo pelo BigNumber Negativo, considerando </p>
-<p>4. Soma de 2 número Negativos
+> **1. Soma de 2 dígitos Positivos** 
+> 
+>Resultado Positivo e é efetuada a soma ao respetivo valor absoluto do BigNumber 
+>
+> **2. Soma de 1 número Negativo com 1 número Negativo** 
+> 
+>Resultado Negativo e é efetuada a soma ao respetivo valor absoluto do BigNumber 
+>
+>**3. Soma de 1 número Positivo com 1 número Negativo** 
+>
+>É efetuada a subtração do BigNumber Positivo pelo BigNumber Negativo, considerando 
+>
+>4. Soma de 2 número Negativos
 
 ##### Soma de números com quantidades diferentes de dígitos
-> <p> **5. Soma de número x com número y , onde x tem mais dígitos** </p> 
-> <p> Enchemos o número y com zeros não significativos de forma a ambos ficarem com o mesmo número de dígitos. </p>   
-> <p> Subtração efetuada normalmente</p>
-> <p> **6. Soma de número x com número y , onde y tem mais dígitos**  </p>
-> <p> Enchemos o número x com zeros não significativos de forma a ambos ficarem com o mesmo número de dígitos.   </p>
-> <p> Subtração efetuada normalmente</p>
-> <p> **7. Soma de números com número igual de dígitos**</p>
+> **5. Soma de número x com número y , onde x tem mais dígitos** 
+> 
+> Enchemos o número y com zeros não significativos de forma a ambos ficarem com o mesmo número de dígitos.    
+> Subtração efetuada normalmente
+> **6. Soma de número x com número y , onde y tem mais dígitos**  
+> Enchemos o número x com zeros não significativos de forma a ambos ficarem com o mesmo número de dígitos.  
+> Subtração efetuada normalmente
+> **7. Soma de números com número igual de dígitos**
 
 ##### Resultado da soma tem número súperior de dígitos a qualquer um dos números
 ##### Soma
@@ -32,14 +39,18 @@
 > 
 > Neste caso o sinal da operação é Positivo e é efetuada a soma dos valores absolutos dos BigNumbers
 > 
-> __2. Subtração de um dígito Positivo por um Negativo__  
+> __2. Subtração de um BigNumber Positivo por um Negativo__  
+> 
 > Neste caso o sinal da operação é Negativo e é efetuada a soma dos valores absolutos dos BigNumbers
 > 
-> __3. Soma de 1 dígito Positivo com 1 dígito Negativo__ 
+> __3. Soma de 1 BigNumber Positivo com 1 dígito Negativo__ 
+> 
 > Quando o caso 2.2 não se aplica, procedimento 2.3 é aplicado 
 > 
-> __4. Soma de 2 dígitos Negativos__ </p> 
+> __4. Soma de 2 BigNumber Negativos__ 
 > 
+> Quando o caso 2.2 não se aplica, procedimento 2.3 é aplicado 
+
 ##### 2.2 Quando o resultado da subtração é 0
 **1. Subtração de BigNumbers com sinal e valor absoluto iguais**  
 Neste caso, não se segue para a função auxiliar para calcular normalmente a subtração e devolve- se simplesmente Positive [0].
