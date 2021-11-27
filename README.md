@@ -25,19 +25,26 @@
 ##### Resultado da soma tem número súperior de dígitos a qualquer um dos números
 ##### Soma
  
-#### SUBTRAÇÃO
+#### 2 . SUBTRAÇÃO
 
-##### Sinais
-> <p> __1. Subtração de um BigNumber Positivo por um Negativo__  </p> 
-> <p>  __2. Subtração de um dígito Positivo por um Negativo__  </p> 
-> <p>  __3. Soma de 1 dígito Positivo com 1 dígito Negativo__ </p> 
-> <p> __4. Soma de 2 dígitos Negativos__ </p> 
+##### 2.1 Sinais
+> __1. Subtração de um BigNumber Positivo por um Negativo__  
 > 
-##### Quando o resultado da subtração é 0
-**1. Subtração de BigNumbers com sinal e valor absoluto iguais**
+> Neste caso o sinal da operação é Positivo e é efetuada a soma dos valores absolutos dos BigNumbers
+> 
+> __2. Subtração de um dígito Positivo por um Negativo__  
+> Neste caso o sinal da operação é Negativo e é efetuada a soma dos valores absolutos dos BigNumbers
+> 
+> __3. Soma de 1 dígito Positivo com 1 dígito Negativo__ 
+> Quando o caso 2.2 não se aplica, procedimento 2.3 é aplicado 
+> 
+> __4. Soma de 2 dígitos Negativos__ </p> 
+> 
+##### 2.2 Quando o resultado da subtração é 0
+**1. Subtração de BigNumbers com sinal e valor absoluto iguais**  
 Neste caso, não se segue para a função auxiliar para calcular normalmente a subtração e devolve- se simplesmente Positive [0].
 
-##### Quando o valore absoluto dos BigNumbers é Diferente
+##### 2.3 Quando o valore absoluto dos BigNumbers é Diferente
 
 
 
