@@ -19,11 +19,13 @@
 >
 >**3. Soma de 1 BigNumber Positivo com 1 BigNumber Negativo** 
 >
-> É efetuada a subtração do BigNumber Positivo pelo BigNumber Negativo, considerando 
+> É efetuada a subtração do BigNumber Positivo pelo BigNumber Negativo, considerando ambos os BigNumbers Positivos
 >
 >`somaBN (Positive[3])(Negative[2]) = Positive [1]`
 >
 > **4. Soma de 1 BigNumber Negativo com 1 BigNumber Negativo**
+>
+> É efetuada a subtração do BigNumber Positivo pelo BigNumber Negativo, considerando ambos Positivos
 >
 >`somaBN (Negative[3])(Positive[2]) = Negative [1]`
 

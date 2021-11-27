@@ -25,7 +25,7 @@
 >
 > **4. Soma de 1 BigNumber Negativo com 1 BigNumber Negativo**
 >
-> É efetuada a subtração do BigNumber Positivo pelo BigNumber Negativo, considerando ambos Positivos
+> É efetuada a subtração do BigNumber Positivo pelo BigNumber Negativo, considerando ambos os BigNumbers Positivos
 >
 >`somaBN (Negative[3])(Positive[2]) = Negative [1]`
 
@@ -74,7 +74,7 @@
 
 ##### 2.3 Quando o valore absoluto dos BigNumbers é Diferente
 
-
+`ola sou a sofia`
 
 ##### Diminuição das casas 
 
