@@ -44,8 +44,8 @@
 > Soma efetuada normalmente
 > 
 
-####7. Soma de números com número igual de dígitos : somaBNAux1
-> **Algoritmo da "Primária"**
+#### Soma de números com número igual de dígitos : somaBNAux1
+> 7. **Soma normal de duas listas de Dígitos** 
 > 
 > Começamos a iterar as listas dos dígitos do BigNumber somando par a par (exemplo: 2+3 = 5, 1+5 = 6 => [1,6])
 > 
@@ -63,7 +63,7 @@
 > 
 > Quando o o "overflow" da soma é diferente de 0, acrescenta esse dígito no campo mais significativo do número (ex: 8 + 2 = 10) -> overflow = 1
 > 
-> 
+> `somaBN (Positive[8])(Positive[2]) = Positive [0,1]`
 
 ------------------------------------------------
 ### 2 . SUBTRAÇÃO

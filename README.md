@@ -44,14 +44,14 @@
 > Soma efetuada normalmente
 > 
 
-####7. Soma de números com número igual de dígitos : somaBNAux1
-> **Algoritmo da "Primária"**
+#### Soma de números com número igual de dígitos : somaBNAux1
+> **7. Soma normal de duas listas de Dígitos** 
 > 
-> Começamos a iterar as listas dos dígitos do BigNumber somando par a par (exemplo: 2+3 = 5, 1+5 = 6 => [1,6])
+> **Algoritmo da "Primária"** : Começamos a iterar as listas dos dígitos do BigNumber somando par a par (exemplo: 2+3 = 5, 1+5 = 6 => [1,6])
 > 
 > `somaBN (Positive[1,3])(Positive[5,2]) = Positive [1,6]`
 > 
-> **Soma de dois Dígitos superior a 10**
+> **8. Soma de dois Dígitos superior a 10**
 > 
 > Nesta função existe um campo **overflow** que serve para assegurar a soma correta nos casos em que a soma de dois dígitos é superior a 10. Assim, tem o valor default de 0, e assume o valor do "excesso":
 > 
@@ -59,7 +59,7 @@
 > 
 > `somaBN (Positive[8,2,1])(Positive[2,1,1]) = Posittive [0,4,2]`
 > 
-> **Resultado da soma tem número superior de dígitos a qualquer um dos números**
+> **9. Resultado da soma tem número superior de dígitos a qualquer um dos números**
 > 
 > Quando o o "overflow" da soma é diferente de 0, acrescenta esse dígito no campo mais significativo do número (ex: 8 + 2 = 10) -> overflow = 1
 > 
