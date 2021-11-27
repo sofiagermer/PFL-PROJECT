@@ -34,7 +34,8 @@
 > <p> __4. Soma de 2 dígitos Negativos__ </p> 
 > 
 ##### Quando o resultado da subtração é 0
-**1. Subtração denúmeros com si
+**1. Subtração de BigNumbers com sinal e valor absoluto iguais**
+Neste caso, não se segue para a função auxiliar para calcular normalmente a sub
 
 ##### Quando o valore absoluto dos BigNumbers é Diferente
 

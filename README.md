@@ -35,7 +35,7 @@
 > 
 ##### Quando o resultado da subtração é 0
 **1. Subtração de BigNumbers com sinal e valor absoluto iguais**
-Neste caso, não se segue para a função auxiliar para calcular normalmente a sub
+Neste caso, não se segue para a função auxiliar para calcular normalmente a subtração e devolve- se simplesmente Positive [0].
 
 ##### Quando o valore absoluto dos BigNumbers é Diferente
 
