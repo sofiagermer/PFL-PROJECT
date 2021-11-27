@@ -1,10 +1,10 @@
 # PFL-PROJECT
 
 ### CASOS DE TESTE
+------------------------------------------------
+### SOMA
 
-#### SOMA
-
-##### Sinais
+#### Sinais
 > **1. Soma de 2 dígitos Positivos** 
 > 
 >Resultado Positivo e é efetuada a soma ao respetivo valor absoluto do BigNumber 
@@ -19,7 +19,7 @@
 >
 >4. Soma de 2 número Negativos
 
-##### Soma de números com quantidades diferentes de dígitos
+#### Soma de números com quantidades diferentes de dígitos
 > **5. Soma de número x com número y , onde x tem mais dígitos** 
 > 
 > Enchemos o número y com zeros não significativos de forma a ambos ficarem com o mesmo número de dígitos
@@ -35,10 +35,10 @@
 > **7. Soma de números com número igual de dígitos**
 > 
 
-##### Resultado da soma tem número súperior de dígitos a qualquer um dos números
-##### Soma
- 
-#### 2 . SUBTRAÇÃO
+#### Resultado da soma tem número súperior de dígitos a qualquer um dos números
+
+------------------------------------------------
+### 2 . SUBTRAÇÃO
 
 ##### 2.1 Sinais
 > __1. Subtração de um BigNumber Positivo por um Negativo__  
@@ -67,11 +67,15 @@ Neste caso, não se segue para a função auxiliar para calcular normalmente a s
 
 ##### Diminuição das casas 
 
-#### MULTIPLICAÇÃO
+------------------------------------------------
+#### 3. MULTIPLICAÇÃO
 ##### Sinais
 > __1. Multiplicação de BigNumbers com o mesmo sinal__
+> 
 > Resultado tem sinal Positivo e é efetuada a multiplicação do valor absoluto do BigNumber
+> 
 > __1. Multiplicação de BigNumbers com o mesmo sinal__
+> 
 > Resultado tem sinal Positivo e é efetuada a multiplicação do valor absoluto do BigNumber
 
 ### EXPLICAÇÃO SUNCINTA DE CADA FUNÇÃO
