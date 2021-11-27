@@ -4,7 +4,7 @@
 ------------------------------------------------
 ### SOMA
 
-#### Sinais
+#### Sinais : somaBN
 > **1. Soma de 2 BigNumbers Positivos** 
 > 
 >Resultado Positivo e é efetuada a soma ao respetivo valor absoluto do BigNumber 
@@ -25,11 +25,11 @@
 >
 > **4. Soma de 1 BigNumber Negativo com 1 BigNumber Negativo**
 >
-> É efetuada a subtração do BigNumber Positivo pelo BigNumber Negativo, considerando ambos Positivos
+> É efetuada a subtração do BigNumber Positivo pelo BigNumber Negativo, considerando ambos os BigNumbers Positivos
 >
 >`somaBN (Negative[3])(Positive[2]) = Negative [1]`
 
-#### Soma de números com quantidades diferentes de dígitos
+#### Soma de números com quantidades diferentes de dígitos :somaBNAux
 > **5. Soma de número x com número y , onde x tem mais dígitos** 
 > 
 > Enchemos o número y com zeros não significativos de forma a ambos ficarem com o mesmo número de dígitos
@@ -45,7 +45,10 @@
 > **7. Soma de números com número igual de dígitos**
 > 
 
-#### Resultado da soma tem número superior de dígitos a qualquer um dos números
+#### Resultado da soma tem número superior de dígitos a qualquer um dos números: somaBNAux1
+> No cálculo em si da soma, foi utilizado um algoritmo semelhante ao da primária.
+> Começamos a iterar as listas dos dígitos do BigNumber somando par a par 
+Caso base na função somaBNAux1 que quando o o "overflow" da soma é diferente de 0, acrescenta esse dígito no campo mais significativo do número (ex: 8 + 2 = )
 
 ------------------------------------------------
 ### 2 . SUBTRAÇÃO
@@ -55,25 +58,36 @@
 > 
 > Neste caso o sinal da operação é Positivo e é efetuada a soma dos valores absolutos dos BigNumbers
 > 
+> `subBN (Positive[3])(Negative[2]) = Positive[5]`
+> 
 > __2. Subtração de um BigNumber Positivo por um Negativo__  
 > 
 > Neste caso o sinal da operação é Negativo e é efetuada a soma dos valores absolutos dos BigNumbers
 > 
-> __3. Soma de 1 BigNumber Positivo com 1 dígito Negativo__ 
+> `subBN (Negative[3])(Positive[2]) = Negative[5]`
+> 
+> __3. Subtração entre 2 BigNumbers Positivos__ 
 > 
 > Quando o caso 2.2 não se aplica, procedimento 2.3 é aplicado 
+> 
+> `subBN (Positive[3])(Positive[2]) = Positive[1]`
 > 
 > __4. Soma de 2 BigNumber Negativos__ 
 > 
 > Quando o caso 2.2 não se aplica, procedimento 2.3 é aplicado 
+> 
+> `subBN (Negative[3])(Positive[2]) = Negative[2]`
 
 ##### 2.2 Quando o resultado da subtração é 0
+
 > **1. Subtração de BigNumbers com sinal e valor absoluto iguais**  
 > 
 > Neste caso, não se segue para a função auxiliar para calcular normalmente a subtração e devolve- se simplesmente Positive [0].
+> 
+> `subBN (Positive[3])(Positive[2]) = Positive[0]`
+> `subBN (Negative[3])(Negative[2]) = Positive[0]`
 
 ##### 2.3 Quando o valore absoluto dos BigNumbers é Diferente
-
 
 
 ##### Diminuição das casas 
