@@ -1,23 +1,33 @@
 # PFL-PROJECT
 
-### CASOS DE TESTE
+### CASOS DE TESTE, EXPLICAÇÃO SUCINTA DA FUNÇÃO E ESTRATÉGIAS UTILIZADAS
 ------------------------------------------------
 ### SOMA
 
 #### Sinais
-> **1. Soma de 2 dígitos Positivos** 
+> **1. Soma de 2 BigNumbers Positivos** 
 > 
 >Resultado Positivo e é efetuada a soma ao respetivo valor absoluto do BigNumber 
 >
-> **2. Soma de 1 número Negativo com 1 número Negativo** 
+> `somaBN (Positive[3])(Positive[2]) = Positive [5]`
+>
+> **2. Soma de 2 BigNumbers negativos** 
 > 
 >Resultado Negativo e é efetuada a soma ao respetivo valor absoluto do BigNumber 
 >
->**3. Soma de 1 número Positivo com 1 número Negativo** 
+>`somaBN (Negative[3])(Negative[2]) = Negative [5]`
 >
->É efetuada a subtração do BigNumber Positivo pelo BigNumber Negativo, considerando 
+>**3. Soma de 1 BigNumber Positivo com 1 BigNumber Negativo** 
 >
->4. Soma de 2 número Negativos
+> É efetuada a subtração do BigNumber Positivo pelo BigNumber Negativo, considerando ambos os BigNumbers Positivos
+>
+>`somaBN (Positive[3])(Negative[2]) = Positive [1]`
+>
+> **4. Soma de 1 BigNumber Negativo com 1 BigNumber Negativo**
+>
+> É efetuada a subtração do BigNumber Positivo pelo BigNumber Negativo, considerando ambos Positivos
+>
+>`somaBN (Negative[3])(Positive[2]) = Negative [1]`
 
 #### Soma de números com quantidades diferentes de dígitos
 > **5. Soma de número x com número y , onde x tem mais dígitos** 
@@ -35,7 +45,7 @@
 > **7. Soma de números com número igual de dígitos**
 > 
 
-#### Resultado da soma tem número súperior de dígitos a qualquer um dos números
+#### Resultado da soma tem número superior de dígitos a qualquer um dos números
 
 ------------------------------------------------
 ### 2 . SUBTRAÇÃO
