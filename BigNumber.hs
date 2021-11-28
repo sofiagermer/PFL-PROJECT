@@ -22,7 +22,7 @@ auxScanner [] = []
 auxScanner (x : xs) = if fromEnum x >= 48 && fromEnum x <= 57 then (fromEnum x -48) : auxScanner xs else error "Not a valid number"
 
 scanner :: String -> BigNumber
-scanner [] = error "Not a number"
+scanner [] = error "Not a number" 
 scanner s@(x : xs)
   | x == '-' = Negative (reverse (auxScanner xs))
   | x == '+' = Positive (reverse (auxScanner xs))

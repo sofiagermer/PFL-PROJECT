@@ -2,7 +2,26 @@
 
 ## BigNumber.hs
 
-### CASOS DE TESTE, EXPLICAÇÃO SUCINTA DA FUNÇÃO E ESTRATÉGIAS UTILIZADAS
+------------------------------------------------
+#### Operator Overload
+
+> Com o intuito de tornar o código mais compreensível e legível, foi feito o overload aos operadores <= (**instance Ord BigNumber**)
+------------------------------------------------
+### SCANNER
+> Função que converte uma string em big-number
+> 
+> `scanner "1234" = Positive [4,3,2,1]`
+> 
+> `scanner "1234" = Negative [4,3,2,1]`
+
+------------------------------------------------
+### OUTPUT
+> Função que converte um Big-Number em string 
+> 
+>  `output (Positive [4,3,2,1]) = "1234"`
+>  
+>  ` output (Negative [4,3,2,1])
+
 ------------------------------------------------
 ### SOMA
 
@@ -214,7 +233,7 @@
 >	No final do ciclo obtemos os valores pretendidos, o quociente e o resto da divisão.
 >	
 >	Para implementar o algoritmo em Haskell recorremos à recursão, através do uso de uma função auxiliar divBNrecursive que aceita como parâmetros o dividendo, o divisor , o quociente (inicializado a zero pela função divBN) e o sinal do resultado, respectivamente.
-------------------------------------------------
+
 ## Fib.hs
 
 ### Cálculo do enésimo número de Fibonacci com Integers
@@ -270,6 +289,7 @@
 
 
 ------------------------------------------------
+
 
 ### RESPOSTA A ALÍNEA 4
 
