@@ -3,6 +3,16 @@
 ## BigNumber.hs
 
 ------------------------------------------------
+#### Definição do tipo BigNumber
+>  número positivo :
+>
+>`Positive[3]`
+>
+>Número Negativo : 
+>
+> `Negative[3]
+
+------------------------------------------------
 #### Operator Overload
 
 > Com o intuito de tornar o código mais compreensível e legível, foi feito o overload aos operadores <= (**instance Ord BigNumber**)
@@ -327,7 +337,7 @@
 
 > **NOTA:** Para testar o running time correu- se o código no ghci com :set +s
 
-##### Conlcusão
+##### Conlclusão
 > Uma abordagem recorrendo a Integer ou BigNumber será uma opção ideal quando se pretende usar números grandes
 > 
 > Atendendo aos tempos de execução concluímos que a abordagem com auxílio de lista infinita é extremamente mais eficiente que a recursiva. Aliás, no caso de Int e Integer estagna nos 0.01 secs para valores grandes.
