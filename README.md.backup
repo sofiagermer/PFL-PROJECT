@@ -1,10 +1,13 @@
 # PFL-PROJECT
 
+## BigNumber.hs
+
 ### CASOS DE TESTE, EXPLICAÇÃO SUCINTA DA FUNÇÃO E ESTRATÉGIAS UTILIZADAS
 ------------------------------------------------
 ### SOMA
 
 #### Sinais : somaBN
+
 > **1. Soma de 2 BigNumbers Positivos** 
 > 
 > Resultado Positivo e é efetuada a soma ao respetivo valor absoluto do BigNumber 
@@ -45,13 +48,13 @@
 > 
 
 #### Soma de números com número igual de dígitos : somaBNAux1
-> 7. **Soma normal de duas listas de Dígitos** 
+> **7. Soma normal de duas listas de Dígitos** 
 > 
-> Começamos a iterar as listas dos dígitos do BigNumber somando par a par (exemplo: 2+3 = 5, 1+5 = 6 => [1,6])
+> **Algoritmo da "Primária"** : Começamos a iterar as listas dos dígitos do BigNumber somando par a par (exemplo: 2+3 = 5, 1+5 = 6 => [1,6])
 > 
 > `somaBN (Positive[1,3])(Positive[5,2]) = Positive [1,6]`
 > 
-> **Soma de dois Dígitos superior a 10**
+> **8. Soma de dois Dígitos superior a 10**
 > 
 > Nesta função existe um campo **overflow** que serve para assegurar a soma correta nos casos em que a soma de dois dígitos é superior a 10. Assim, tem o valor default de 0, e assume o valor do "excesso":
 > 
@@ -59,7 +62,7 @@
 > 
 > `somaBN (Positive[8,2,1])(Positive[2,1,1]) = Posittive [0,4,2]`
 > 
-> **Resultado da soma tem número superior de dígitos a qualquer um dos números**
+> **9. Resultado da soma tem número superior de dígitos a qualquer um dos números**
 > 
 > Quando o o "overflow" da soma é diferente de 0, acrescenta esse dígito no campo mais significativo do número (ex: 8 + 2 = 10) -> overflow = 1
 > 
@@ -131,7 +134,9 @@
 
 ------------------------------------------------
 #### 3. MULTIPLICAÇÃO
-#### Sinais
+
+#### Sinais : mulBN
+
 > __1. Multiplicação de BigNumbers com o mesmo sinal__
 > 
 > Resultado tem sinal Positivo e é efetuada a multiplicação do valor absoluto do BigNumber
@@ -140,7 +145,7 @@
 > 
 > `mulBN (Negative[3])(Negative[3]) = Positive[9]`
 > 
-> __1. Multiplicação de BigNumbers com o mesmo sinal__
+> __1. Multiplicação de BigNumbers sinais diferentes__
 > 
 > Resultado tem sinal Positivo e é efetuada a multiplicação do valor absoluto do BigNumber
 > 
@@ -148,7 +153,33 @@
 >  
 >  `mulBN (Negative[3])(Positive[3]) = Negative[9]`
 
+#### Multiplicação de uma lista de dígitos por um valor : mulAux1
+
+>  Recorrendo à função **map** do prelúdio, multiplicamos cada dígito dessa lista por esse valor
+>  
+>  `mulAux1 [1,2,3,4] 2 = [2,4,6,8]`
+
+#### Multiplicação das listas de dígitos de BigNumbers : muAUX2
+
 ------------------------------------------------
+
+## Fib.hs
+
+### Função recursiva : fibRec
+> Implementação recursiva do cálculo do enésimo número de Fibonacci
+
+### Otimização da função anterior : fibLista
+> Implementação otimizada da versão recursiva do cálculo do enésimo número de Fibonacci (**programação dinâmica**)
+> 
+> Recorreu- se a uma lista de resultados parciais tal que (lista !! i) contém o número de Fibonacci de ordem i
+
+### Lista infinita com todos os números de Fibonnaci e returnar elemento n
+> Implementação do cálculo do enésimo número de Fibonacci com auxílio de uma lista auxiliar
+
+
+
+------------------------------------------------
+
 ### RESPOSTA A ALÍNEA 4
 
 >**Compare as resoluções das alíneas 1 e 3** com tipos (Int -> Int), (Integer ->

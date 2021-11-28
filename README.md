@@ -1,10 +1,13 @@
 # PFL-PROJECT
 
+## BigNumber.hs
+
 ### CASOS DE TESTE, EXPLICAÇÃO SUCINTA DA FUNÇÃO E ESTRATÉGIAS UTILIZADAS
 ------------------------------------------------
 ### SOMA
 
 #### Sinais : somaBN
+
 > **1. Soma de 2 BigNumbers Positivos** 
 > 
 > Resultado Positivo e é efetuada a soma ao respetivo valor absoluto do BigNumber 
@@ -130,8 +133,10 @@
 ##### Diminuição das casas 
 
 ------------------------------------------------
-#### 3. MULTIPLICAÇÃO
-#### Sinais
+### 3. MULTIPLICAÇÃO
+
+#### Sinais : mulBN
+
 > __1. Multiplicação de BigNumbers com o mesmo sinal__
 > 
 > Resultado tem sinal Positivo e é efetuada a multiplicação do valor absoluto do BigNumber
@@ -140,7 +145,7 @@
 > 
 > `mulBN (Negative[3])(Negative[3]) = Positive[9]`
 > 
-> __1. Multiplicação de BigNumbers com o mesmo sinal__
+> __1. Multiplicação de BigNumbers sinais diferentes__
 > 
 > Resultado tem sinal Positivo e é efetuada a multiplicação do valor absoluto do BigNumber
 > 
@@ -148,7 +153,36 @@
 >  
 >  `mulBN (Negative[3])(Positive[3]) = Negative[9]`
 
+#### Multiplicação de uma lista de dígitos por um valor : mulAux1
+
+>  Recorrendo à função **map** do prelúdio, multiplicamos cada dígito dessa lista por esse valor
+>  
+>  `mulAux1 [1,2,3,4] 2 = [2,4,6,8]`
+
+#### Multiplicação das listas de dígitos de BigNumbers : muAUX2
+
+
 ------------------------------------------------
+
+## Fib.hs
+
+### Função recursiva : fibRec
+> Implementação recursiva do cálculo do enésimo número de Fibonacci
+
+### Otimização da função anterior : fibLista
+> Implementação otimizada da versão recursiva do cálculo do enésimo número de Fibonacci (**programação dinâmica**)
+> 
+> Recorreu- se a uma lista de resultados parciais tal que (lista !! i) contém o número de Fibonacci de ordem i
+
+### Lista infinita com todos os números de Fibonnaci e returnar elemento n
+> Implementação do cálculo do enésimo número de Fibonacci com auxílio de uma lista infinita com todos os números de Fibonnacci
+> 
+> Retorna elemento de ordem n
+
+
+
+------------------------------------------------
+
 ### RESPOSTA A ALÍNEA 4
 
 >**Compare as resoluções das alíneas 1 e 3** com tipos (Int -> Int), (Integer ->
