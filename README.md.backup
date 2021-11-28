@@ -289,22 +289,50 @@
 
 ### RESPOSTA A ALÍNEA 4
 
->		**Compare as resoluções das alíneas 1 e 3** com tipos (Int -> Int), (Integer ->
-Integer) e (BigNumber -> BigNumber), comparando a sua aplicação a números grandes
-e verificando qual o maior número que cada uma aceita como argumento.
+>		**Compare as resoluções das alíneas 1 e 3** com tipos (Int-> Int), (Integer->Integer) e (BigNumber->BigNumber), comparando a sua aplicação a números grandes e verificando qual o maior número que cada uma aceita como argumento.
+
+> Int é um inteiro que possui limitações de tamanho, sendo que, em computadores de 32bit tem um valor máximo de 2147483647 e um valor mínimo de -2147483648.
+> 
+> Integer também é um int, no entanto, não tem limitações de tamanho. Como consequência pode ser usado para representar números grandes, acabando por ser menos eficiente que uma implementação usando Int.
+> 
+> Tal como o Integer o BigNumber não tem limitações de tamanho, tendo também menos eficiência do que o Int
+> 
+**Alínea 1 : Abordagem Recursiva** 
 
 |      Tipo        |    Número           | Execution Time      |
 | ---------------- |-------------------- |-------------------- |
-| (Int -> Int)     | 10   |              0.01 secs                      |
-|(Integer -> Integer)|   10  |               0.02 secs             |  
-|(BigNumber -> BigNumber)|   10  |                            |  
-| (Int -> Int)     | 20   |                                    |
-|(Integer -> Integer)|   20  |                            |  
-|(BigNumber -> BigNumber)|   20  |                            | 
-| (Int -> Int)     | 80   |                                    |
-|(Integer -> Integer)|   80  |                            |  
-|(BigNumber -> BigNumber)|   80  |                            | 
+| (Int -> Int)     | 10   |           0.02 secs                          |
+|(Integer -> Integer)|   10  |         0.01 secs                  |  
+|(BigNumber -> BigNumber)|   10  |       0.01 secs                     |  
+| (Int -> Int)     | 20   |              0.05 secs                     |
+|(Integer -> Integer)|   20  |           0.06 secs                  |  
+|(BigNumber -> BigNumber)|   20  |       0.12 secs                     | 
+| (Int -> Int)     | 25   |              0.17 secs                     |
+|(Integer -> Integer)|   25  |           0.21 secs                  |  
+|(BigNumber -> BigNumber)|   25  |       0.12 secs                 |
+| (Int -> Int)     | 30   |             1.81 secs                      |
+|(Integer -> Integer)|   30  |          1.83 secs                  |  
+|(BigNumber -> BigNumber)|   30  |      13.06 secs                   | 
 
+**Alínea 3 : Abordagem Com Auxílio de Lista Infinita** 
+
+|      Tipo        |    Número           | Execution Time      |
+| ---------------- |-------------------- |-------------------- |
+|(Integer -> Integer)|   10  |         0.01 secs                  |  
+|(BigNumber -> BigNumber)|   10  |      0.01 secs                      |  
+|(Integer -> Integer)|   20  |           0.01 secs                  |  
+|(BigNumber -> BigNumber)|   20  |      0.01 secs                     | 
+|(Integer -> Integer)|   1000  |          0.01 secs                  |  
+|(BigNumber -> BigNumber)|   1000  |      0.15 secs                   | 
+
+> **NOTA:** Para testar o running time correu- se o código no ghci com :set +s
+
+##### Conlcusão
+> Uma abordagem recorrendo a Integer ou BigNumber será uma opção ideal quando se pretende usar números grandes
+> 
+> Atendendo aos tempos de execução concluímos que a abordagem com auxílio de lista infinita é extremamente mais eficiente que a recursiva. Aliás, no caso de Int e Integer estagna nos 0.01 secs para valores grandes.
+> 
+> Por outro lado, esta abordagem também prova ser bastante mais eficiente que a recursiva no ca
 ------------------------------------------------
 | Name             | E-Mail              |
 | ---------------- |-------------------- |

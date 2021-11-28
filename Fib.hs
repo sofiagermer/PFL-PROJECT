@@ -34,7 +34,6 @@ fibs = [0] ++ [1] ++ zipWith (+) fibs (tail fibs)
 fibListaInfinita :: Int -> Integer
 fibListaInfinita n = fibs !! n
 
-
 -- =======================================================================================
 -- EX 3.1 : exercício 1.1 aplicado a BigNumbers
 fibRecBN :: BigNumber -> BigNumber
@@ -72,3 +71,14 @@ fibsBN = [[0]] ++ [[1]] ++ zipWith somaBNAux fibsBN (tail fibsBN)
 fibListaInfinitaBN :: BigNumber -> BigNumber 
 fibListaInfinitaBN (Positive n) = Positive (fibsBN !! convertToInt (reverse n))
 fibListaInfinitaBN (Negative n) = Positive [0] 
+
+---------------------------------------------------------------------------------
+fibRecInt :: Int -> Int
+fibRecInt n =
+  if n <= 1 then n
+  else fibRec (n -1) + fibRec (n -2)
+
+fibRecInteger :: Integer -> Integer
+fibRecInteger n =
+  if n <= 1 then n
+  else fibRec (n -1) + fibRec (n -2)
