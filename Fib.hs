@@ -1,4 +1,4 @@
-import BigNumber (BigNumber (Negative, Positive), somaBN, subBN,output)
+import BigNumber (BigNumber (Negative, Positive), output, somaBN, subBN)
 
 -- -------------------------------------------------------------------------------
 --EX 1.1
@@ -10,8 +10,7 @@ fibRec n =
 -- -------------------------------------------------------------------------------
 --EX 1.2
 
--- fibLista :: (Integral a) => a -> a
-fibLista :: Integer -> Integer
+fibLista :: (Integral a) => a -> a
 fibLista n = last (fibListaAux1 n)
 
 
@@ -36,14 +35,22 @@ fibListaInfinita n = fibs !! n
 
 -- -------------------------------------------------------------------------------
 -- EX 3
-fibRecBN :: BigNumber  -> BigNumber
+fibRecBN :: BigNumber -> BigNumber
 fibRecBN n
   | n == Positive [0] = Positive [0]
   | n == Positive [1] = Positive [1]
   | otherwise = somaBN (fibRecBN (subBN n (Positive [1]))) (fibRecBN (subBN n (Positive [2])))
 
+fibListaAuxBN :: [BigNumber] -> BigNumber
+fibListaAuxBN [Positive [0]] = Positive [0]
+fibListaAuxBN [Positive [1]] = Positive [1]
+fibListaAuxBN [b] = somaBN (fibListaAuxBN [subBN b (Positive [1])]) (fibListaAuxBN [subBN b (Positive [2])])
 --fibListaAuxBN :: [BigNumber] -> BigNumber
 --fibListaAuxBN [Positive [0]] = Positive [0]
 --fibListaAuxBN [Positive [1]] = Positive [1]
 --fibListaAuxBN [b] = somaBN (fibListaAuxBN [subBN b (Positive [1])]) (fibListaAuxBN [subBN b (Positive [2])])
 
+fibListaBN n = fibListaAuxBN [n]
+
+-- fibListaInfinitaBN :: BigNumber -> BigNumber 
+-- fibListaInfinitaBN b = [fibListaBN x | x<-[0..]] !! 

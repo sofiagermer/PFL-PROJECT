@@ -133,7 +133,7 @@
 ##### Diminuição das casas 
 
 ------------------------------------------------
-#### 3. MULTIPLICAÇÃO
+### 3. MULTIPLICAÇÃO
 
 #### Sinais : mulBN
 
@@ -175,6 +175,7 @@
 >		Neste exemplo multiplicamos [1,3] por [1] = [1,3] e depois [1,3] por [2] = [2,6]
 >  		Como é iterado duas vezes [1,3] é enchido por 1 zero ficando [0,1,3] e [2,6] permanece igual
 >  		No final somam- se as duas listas [1,3,0] + [2,6] = [2,7,3]
+
 
 ------------------------------------------------
 #### 4. DIVISÃO
