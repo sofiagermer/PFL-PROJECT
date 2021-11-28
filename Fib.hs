@@ -12,7 +12,7 @@ fibRec n =
 -- -------------------------------------------------------------------------------
 --EX 1.2 : implemenação otimizada da função anterior (programação dinâmica)
 
-fibLista :: Integer -> Integer 
+fibLista :: Integer -> Integer
 fibLista n = last (fibListaAux1 n)
 
 fibListaAux1 :: Integer -> [Integer]
@@ -36,7 +36,7 @@ fibListaInfinita n = fibs !! n
 
 
 -- =======================================================================================
--- EX 3.1
+-- EX 3.1 : exercício 1.1 aplicado a BigNumbers
 fibRecBN :: BigNumber -> BigNumber
 fibRecBN n
   | n == Positive [0] = Positive [0]
@@ -44,32 +44,23 @@ fibRecBN n
   | otherwise = somaBN (fibRecBN (subBN n (Positive [1]))) (fibRecBN (subBN n (Positive [2])))
 
 -- -------------------------------------------------------------------------------
--- EX 3.2 
--- fibListaAuxBN :: [BigNumber] -> BigNumber
--- fibListaAuxBN [Positive [0]] = Positive [0]
--- fibListaAuxBN [Positive [1]] = Positive [1]
--- fibListaAuxBN [b] = somaBN (fibListaAuxBN [subBN b (Positive [1])]) (fibListaAuxBN [subBN b (Positive [2])])
---fibListaAuxBN :: [BigNumber] -> BigNumber
---fibListaAuxBN [Positive [0]] = Positive [0]
---fibListaAuxBN [Positive [1]] = Positive [1]
---fibListaAuxBN [b] = somaBN (fibListaAuxBN [subBN b (Positive [1])]) (fibListaAuxBN [subBN b (Positive [2])])
-
-fibListaBN :: BigNumber  -> BigNumber  
-fibListaBN (Positive d1) = Positive (last (fibListaAux1 d1))
+-- EX 3.2 - exercício 1.2 aplicado a BigNumbers
+fibListaBN :: BigNumber  -> BigNumber
+fibListaBN (Positive d1) = Positive (last (fibListaAux1BN d1))
 fibListaBN (Negative d1) = Positive [0]
 
 -- o número que cremos como indice na sequencia de fibonnacci é representado como uma lista de dígitos
-fibListaAux1BN :: [Integer] -> [Integer]
-fibListaAux1BN 0 = [1]
-fibListaAux1BN 1 = [1,1]
-fibListaAux1BN n = [1,1] ++ fibListaAux 1 1 (subBNAux n [2])
+fibListaAux1BN :: [Int] -> [[Int]]
+fibListaAux1BN [0] = [[1]]
+fibListaAux1BN [1] = [[1],[1]]
+fibListaAux1BN n = [[1],[1]] ++ fibListaAuxBN [1] [1] (subBNAux n [2])
 
-fibListaAuxBN :: [Integer] -> [Integer] -> [Integer]  -> [Integer]
-fibListaAuxBN a b 0 = []
-fibListaAuxBN a b n = (somaBN a b) : fibListaAux (somaBN a b) a (subBN (Positive n) (Positive[2]))
+fibListaAuxBN :: [Int] -> [Int] -> [Int]  -> [[Int]]
+fibListaAuxBN a b [] = []
+fibListaAuxBN a b n = somaBNAux a b : fibListaAuxBN (somaBNAux a b) a (subBNAux n [1])
 
 -- -------------------------------------------------------------------------------
--- EX 3.3 
+-- EX 3.3 - exercício 1.3 aplciado a BigNumbers
 
 -- fibListaInfinitaBN :: BigNumber -> BigNumber 
 -- fibListaInfinitaBN b = [fibListaBN x | x<-[0..]] !! 

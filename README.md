@@ -1,4 +1,4 @@
-# PFL-PROJECT
+# PFL-PROJECT-G05
 
 ## BigNumber.hs
 
@@ -174,11 +174,11 @@
 >  
 >  **NOTA** : 
 >  
->		Neste exemplo multiplicamos [1,3] por [1] = [1,3] e depois [1,3] por [2] = [2,6]
+>	Neste exemplo multiplicamos [1,3] por [1] = [1,3] e depois [1,3] por [2] = [2,6]
 >		
->  		Como é iterado duas vezes [1,3] é enchido por 1 zero ficando [0,1,3] e [2,6] permanece igual
+>  	Como é iterado duas vezes [1,3] é enchido por 1 zero ficando [0,1,3] e [2,6] permanece igual
 >  		
->  		No final somam- se as duas listas [1,3,0] + [2,6] = [2,7,3]
+>  	No final somam- se as duas listas [1,3,0] + [2,6] = [2,7,3]
 
 
 ------------------------------------------------
@@ -201,16 +201,16 @@
 #### Algoritmo de Divisão
 > A divisão implementada baseia-se no seguinte algoritmo:
 >
-><code>
->	q=0
+>
+>		q=0
 >	
->	r=n
+>		r=n
 >	
->	while(r>d){
->  		r=r-d
->  		q=q+1
->	}
-></code>
+>		while(r>d){
+>  			r=r-d
+>  			q=q+1
+>		}
+>
 >	No final do ciclo obtemos os valores pretendidos, o quociente e o resto da divisão.
 >	
 >	Para implementar o algoritmo em Haskell recorremos à recursão, através do uso de uma função auxiliar divBNrecursive que aceita como parâmetros o dividendo, o divisor , o quociente (inicializado a zero pela função divBN) e o sinal do resultado, respectivamente.
@@ -224,6 +224,12 @@
 > Implementação otimizada da versão recursiva do cálculo do enésimo número de Fibonacci (**programação dinâmica**)
 > 
 > Recorreu- se a uma lista de resultados parciais tal que (lista !! i) contém o número de Fibonacci de ordem i
+> 
+> 1. **fibLista** 
+> 
+> 2. **fibListaAux1**
+> 
+> 3. **fibListaAux**
 
 ### Lista infinita com todos os números de Fibonnaci e returnar elemento n
 > Implementação do cálculo do enésimo número de Fibonacci com auxílio de uma lista infinita com todos os números de Fibonnacci
