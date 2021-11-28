@@ -145,7 +145,7 @@
 > 
 > `mulBN (Negative[3])(Negative[3]) = Positive[9]`
 > 
-> __1. Multiplicação de BigNumbers com o mesmo sinal__
+> __1. Multiplicação de BigNumbers sinais diferentes__
 > 
 > Resultado tem sinal Positivo e é efetuada a multiplicação do valor absoluto do BigNumber
 > 
@@ -166,10 +166,17 @@
 ## Fib.hs
 
 ### Função recursiva : fibRec
+> Implementação recursiva do cálculo do enésimo número de Fibonacci
 
 ### Otimização da função anterior : fibLista
+> Implementação otimizada da versão recursiva do cálculo do enésimo número de Fibonacci (**programação dinâmica**)
+> 
+> Recorreu- se a uma lista de resultados parciais tal que (lista !! i) contém o número de Fibonacci de ordem i
 
 ### Lista infinita com todos os números de Fibonnaci e returnar elemento n
+> Implementação do cálculo do enésimo número de Fibonacci com auxílio de uma lista infinita com todos os números de Fibonnacci
+> 
+> Retorna elemento de ordem n
 
 
 
