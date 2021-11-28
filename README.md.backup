@@ -332,7 +332,7 @@
 > 
 > Atendendo aos tempos de execução concluímos que a abordagem com auxílio de lista infinita é extremamente mais eficiente que a recursiva. Aliás, no caso de Int e Integer estagna nos 0.01 secs para valores grandes.
 > 
-> Por outro lado, esta abordagem também prova ser bastante mais eficiente que a recursiva no ca
+> Por outro lado, esta abordagem também prova ser bastante mais eficiente que a recursiva no caso dos BigNumbers. Porém, como seria de esperar, usando BigNumbers a eficiência é , por consequência, reduzida (devido às inúmeras operações realizadas em listas)
 ------------------------------------------------
 | Name             | E-Mail              |
 | ---------------- |-------------------- |

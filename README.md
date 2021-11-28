@@ -289,7 +289,7 @@
 
 ### RESPOSTA A ALÍNEA 4
 
->		**Compare as resoluções das alíneas 1 e 3** com tipos (Int-> Int), (Integer->Integer) e (BigNumber->BigNumber), comparando a sua aplicação a números grandes e verificando qual o maior número que cada uma aceita como argumento.
+>		Compare as resoluções das alíneas 1 e 3 com tipos (Int-> Int), (Integer->Integer) e (BigNumber->BigNumber), comparando a sua aplicação a números grandes e verificando qual o maior número que cada uma aceita como argumento.
 
 > Int é um inteiro que possui limitações de tamanho, sendo que, em computadores de 32bit tem um valor máximo de 2147483647 e um valor mínimo de -2147483648.
 > 
@@ -332,7 +332,7 @@
 > 
 > Atendendo aos tempos de execução concluímos que a abordagem com auxílio de lista infinita é extremamente mais eficiente que a recursiva. Aliás, no caso de Int e Integer estagna nos 0.01 secs para valores grandes.
 > 
-> Por outro lado, esta abordagem também prova ser bastante mais eficiente que a recursiva no caso dos BigNumbers. Porém, como seria de esperar, usando BigNumbers a eficiência é ,
+> Por outro lado, esta abordagem também prova ser bastante mais eficiente que a recursiva no caso dos BigNumbers. Porém, como seria de esperar, usando BigNumbers a eficiência é , por consequência, reduzida (devido às inúmeras operações realizadas em listas)
 ------------------------------------------------
 | Name             | E-Mail              |
 | ---------------- |-------------------- |

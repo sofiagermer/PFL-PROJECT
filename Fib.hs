@@ -16,9 +16,9 @@ fibLista :: Integer -> Integer
 fibLista n = last (fibListaAux1 n)
 
 fibListaAux1 :: Integer -> [Integer]
-fibListaAux1 0 = [1]
-fibListaAux1 1 = [1,1]
-fibListaAux1 n = [1,1] ++ fibListaAux 1 1 (n-2)
+fibListaAux1 0 = [0]
+fibListaAux1 1 = [0,1]
+fibListaAux1 n = [0,1,1] ++ fibListaAux 1 1 (n-2)
 
 fibListaAux :: Integer -> Integer -> Integer  -> [Integer]
 fibListaAux a b 0 = []
@@ -50,9 +50,9 @@ fibListaBN (Negative d1) = Positive [0]
 
 -- o número que cremos como indice na sequencia de fibonnacci é representado como uma lista de dígitos
 fibListaAux1BN :: [Int] -> [[Int]]
-fibListaAux1BN [0] = [[1]]
-fibListaAux1BN [1] = [[1],[1]]
-fibListaAux1BN n = [[1],[1]] ++ fibListaAuxBN [1] [1] (subBNAux n [2])
+fibListaAux1BN [0] = [[0]]
+fibListaAux1BN [1] = [[0],[1]]
+fibListaAux1BN n = [[0],[1],[1]] ++ fibListaAuxBN [1] [1] (subBNAux n [2])
 
 fibListaAuxBN :: [Int] -> [Int] -> [Int]  -> [[Int]]
 fibListaAuxBN a b [] = []
@@ -73,6 +73,7 @@ fibListaInfinitaBN (Positive n) = Positive (fibsBN !! convertToInt (reverse n))
 fibListaInfinitaBN (Negative n) = Positive [0] 
 
 ---------------------------------------------------------------------------------
+-- EX 4 - funções auxiliares para comparar a eficiência de Int e Integer
 fibRecInt :: Int -> Int
 fibRecInt n =
   if n <= 1 then n
