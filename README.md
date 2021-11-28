@@ -71,7 +71,7 @@
 ------------------------------------------------
 ### 2 . SUBTRAÇÃO
 
-##### 2.1 Sinais
+##### Sinais
 > __1. Subtração de um BigNumber Positivo por um Negativo__  
 > 
 > Neste caso o sinal da operação é Positivo e é efetuada a soma dos valores absolutos dos BigNumbers
@@ -171,9 +171,13 @@
 > 
 >  ` mulBN (Positive [1,3]) (Positive [2,1]) = Positive [2,7,3] `
 >  
+>  
 >  **NOTA** : 
+>  
 >		Neste exemplo multiplicamos [1,3] por [1] = [1,3] e depois [1,3] por [2] = [2,6]
+>		
 >  		Como é iterado duas vezes [1,3] é enchido por 1 zero ficando [0,1,3] e [2,6] permanece igual
+>  		
 >  		No final somam- se as duas listas [1,3,0] + [2,6] = [2,7,3]
 
 
@@ -202,13 +206,13 @@
 >	r=n
 >	
 >	while(r>d){
->	
 >  		r=r-d
->  		
 >  		q=q+1
->  		
 >	}
-
+>	
+>	No final do ciclo obtemos os valores pretendidos, o quociente e o resto da divisão.
+>	
+>	Para implementar o algoritmo em Haskell recorremos à recursão, através do uso de uma função auxiliar divBNrecursive que aceita como parâmetros o dividendo, o divisor , o quociente (inicializado a zero pela função divBN) e o sinal do resultado, respectivamente.
 ------------------------------------------------
 ## Fib.hs
 
