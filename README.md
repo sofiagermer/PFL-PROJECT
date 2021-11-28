@@ -201,6 +201,7 @@
 #### Algoritmo de Divisão
 > A divisão implementada baseia-se no seguinte algoritmo:
 >
+><code>
 >	q=0
 >	
 >	r=n
@@ -209,7 +210,7 @@
 >  		r=r-d
 >  		q=q+1
 >	}
->	
+></code>
 >	No final do ciclo obtemos os valores pretendidos, o quociente e o resto da divisão.
 >	
 >	Para implementar o algoritmo em Haskell recorremos à recursão, através do uso de uma função auxiliar divBNrecursive que aceita como parâmetros o dividendo, o divisor , o quociente (inicializado a zero pela função divBN) e o sinal do resultado, respectivamente.
