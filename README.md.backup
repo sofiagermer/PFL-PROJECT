@@ -196,14 +196,15 @@
 
 #### Algoritmo de Divisão
 > A divisão implementada baseia-se no seguinte algoritmo:
->
->	q=0
->	r=n
->	while(r>d){
->  		r=r-d
->  		q=q+1
->	}
 
+<code>
+	q=0
+	r=n
+	while(r>d){
+  		r=r-d
+  		q=q+1
+	}
+</code>. 
 
 ------------------------------------------------
 ## Fib.hs
