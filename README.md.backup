@@ -16,9 +16,39 @@
 > `Negative[3]`
 
 ------------------------------------------------
-#### Operator Overload
+#### Defining a custom Ord instance
 
 > Com o intuito de tornar o código mais compreensível e legível, foi feito o overload aos operadores <= (**instance Ord BigNumber**)
+> 
+> **1 BigNumber Negativo e 1 BigNumber Positivo**
+> 
+> Retorna sempre True porque um número negativo é sempre menor que um positivo
+> 
+> `Negative [3] < Positive [0,1] = True`
+> 
+> **1 BigNumber Positivo e 1 BigNumber Negativo**
+> 
+> Retorna sempre False porque um número positivo é sempre maior que um positivo
+> 
+> `Positive [3] < Negative [0,1] = False`
+> 
+> **2 BigNumbers Negativos:** 
+> 
+> 1. Se tiverem o mesmo comprimento é comparado o valor das listas invertidas 
+> `Negative [0,3] < Negative [0,1] = False`
+> 
+> 2. Se o comprimento de BigNumber1 menor que BigNumber2 retorna False
+> 
+> 3. Em todos os outros casos True
+> 
+> **2 BigNumbers Positivos**
+> 
+> > 1. Se tiverem o mesmo comprimento é comparado o valor das listas invertidas 
+> `Positive [0,3] < Negative [0,1] = False`
+> 
+> 2. Se o comprimento de BigNumber1 menor que BigNumber2 retorna False
+> 
+> 3. Em todos os outros casos True
 ------------------------------------------------
 ### 2. SCANNER
 > Função que converte uma string em big-number
