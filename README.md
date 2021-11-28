@@ -50,9 +50,9 @@
 #### Soma de números com número igual de dígitos : somaBNAux1
 > **7. Soma normal de duas listas de Dígitos** 
 > 
-> **Algoritmo da "Primária"** : Começamos a iterar as listas dos dígitos do BigNumber somando par a par (exemplo: 2+3 = 5, 1+5 = 6 => [1,6])
+> **Algoritmo da "Primária"** : Começamos a iterar as listas dos dígitos do BigNumber somando par a par (exemplo: 1+5 = 6; 2+3 = 5)
 > 
-> `somaBN (Positive[1,3])(Positive[5,2]) = Positive [1,6]`
+> `somaBN (Positive[1,3])(Positive[5,2]) = Positive [6,5]`
 > 
 > **8. Soma de dois Dígitos superior a 10**
 > 
