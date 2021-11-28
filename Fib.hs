@@ -62,5 +62,13 @@ fibListaAuxBN a b n = somaBNAux a b : fibListaAuxBN (somaBNAux a b) a (subBNAux 
 -- -------------------------------------------------------------------------------
 -- EX 3.3 - exercício 1.3 aplciado a BigNumbers
 
--- fibListaInfinitaBN :: BigNumber -> BigNumber 
--- fibListaInfinitaBN b = [fibListaBN x | x<-[0..]] !! 
+convertToInt :: [Int] -> Int
+convertToInt = foldl addDigit 0
+   where addDigit numero d = 10*numero + d
+
+fibsBN :: [[Int]]
+fibsBN = [[0]] ++ [[1]] ++ zipWith somaBNAux fibsBN (tail fibsBN)
+
+fibListaInfinitaBN :: BigNumber -> BigNumber 
+fibListaInfinitaBN (Positive n) = Positive (fibsBN !! convertToInt (reverse n))
+fibListaInfinitaBN (Negative n) = Positive [0] 

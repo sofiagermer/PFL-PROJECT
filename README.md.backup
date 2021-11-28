@@ -273,7 +273,7 @@
 
 ### RESPOSTA A ALÍNEA 4
 
->		**Compare as resoluções das alíneas 1 e 3** com tipos (Int -> Int), (Integer ->
+>**Compare as resoluções das alíneas 1 e 3** com tipos (Int -> Int), (Integer ->
 Integer) e (BigNumber -> BigNumber), comparando a sua aplicação a números grandes
 e verificando qual o maior número que cada uma aceita como argumento.
 
