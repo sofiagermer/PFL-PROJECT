@@ -51,11 +51,6 @@ output :: BigNumber -> String
 output (Positive d) = reverse (auxOutput d)
 output (Negative d) = "-" ++ reverse (auxOutput d)
 
-
--- -------------------------------------------------------------------------------
-getBigNumberDigits :: BigNumber -> [Int]
-getBigNumberDigits (Positive d1) = d1
-getBigNumberDigits (Negative d1) = d1
 -- -------------------------------------------------------------------------------
 --Funções auxiliares que devolvem lista maior
 
@@ -110,7 +105,7 @@ subAux1 (x : xs) (y : ys) overflow
   | x < (y + overflow) = ((10 + x) - y - overflow) : subAux1 xs ys 1
   | x == y + overflow && null xs = [] --para não aparecer 0 no início do número
   | abs (x - y - overflow) < 10 = (x - y - overflow) : subAux1 xs ys 0
-  | otherwise = [1]
+  | otherwise = []
 
 -- para quando somamos numeros com quantidades diferentes de dígitos : x -y
 subBNAux :: [Int] -> [Int] -> BigNumber
@@ -128,7 +123,7 @@ subBN (Positive d1) (Positive d2) = if Positive d1 == Positive d2 then Positive 
 subBN (Negative d1) (Negative d2) = if Positive d1 == Positive d2 then Positive [0] else subBNAux d2 d1
 
 -- -------------------------------------------------------------------------------
-
+-- --Função que subtrai dois BigNumbers
 mulAux1 :: [Int] -> Int -> [Int]
 mulAux1 xs el = map (* el) xs
 
@@ -158,9 +153,13 @@ divBN :: BigNumber -> BigNumber -> (BigNumber, BigNumber)
 divBN n d = divBNrecursive n d (Positive [0])
 
 -- -------------------------------------------------------------------------------
+getBigNumberDigits :: BigNumber -> [Int]
+getBigNumberDigits (Positive d1) = d1
+getBigNumberDigits (Negative d1) = d1
+-- -------------------------------------------------------------------------------
 
 saveDivBN :: BigNumber -> BigNumber -> Maybe(BigNumber,BigNumber)
 saveDivBN numerador denominador
-  | head(getBigNumberDigits denominador) == 0 && length(getBigNumberDigits(denominador)) == 1 = Nothing
+  | head(getBigNumberDigits denominador) == 0 && length(getBigNumberDigits denominador) == 1 = Nothing
   | otherwise = Just (divBN numerador denominador)
 

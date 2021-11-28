@@ -1,10 +1,13 @@
 # PFL-PROJECT
 
+## BigNumber.hs
+
 ### CASOS DE TESTE, EXPLICAÇÃO SUCINTA DA FUNÇÃO E ESTRATÉGIAS UTILIZADAS
 ------------------------------------------------
 ### SOMA
 
 #### Sinais : somaBN
+
 > **1. Soma de 2 BigNumbers Positivos** 
 > 
 > Resultado Positivo e é efetuada a soma ao respetivo valor absoluto do BigNumber 
@@ -131,7 +134,9 @@
 
 ------------------------------------------------
 #### 3. MULTIPLICAÇÃO
-#### Sinais
+
+#### Sinais : mulBN
+
 > __1. Multiplicação de BigNumbers com o mesmo sinal__
 > 
 > Resultado tem sinal Positivo e é efetuada a multiplicação do valor absoluto do BigNumber
@@ -148,7 +153,28 @@
 >  
 >  `mulBN (Negative[3])(Positive[3]) = Negative[9]`
 
+#### Multiplicação de uma lista de dígitos por um valor : mulAux1
+
+>  Recorrendo à função **map** do prelúdio, multiplicamos cada dígito dessa lista por esse valor
+>  
+>  `mulAux1 [1,2,3,4] 2 = [2,4,6,8]`
+
+#### Multiplicação das listas de dígitos de BigNumbers : muAUX2
+
 ------------------------------------------------
+
+## Fib.hs
+
+### Função recursiva : fibRec
+
+### Otimização da função anterior : fibLista
+
+### Lista infinita com todos os números de Fibonnaci e returnar elemento n
+
+
+
+------------------------------------------------
+
 ### RESPOSTA A ALÍNEA 4
 
 >**Compare as resoluções das alíneas 1 e 3** com tipos (Int -> Int), (Integer ->
