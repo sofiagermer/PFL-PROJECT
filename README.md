@@ -4,20 +4,22 @@
 
 ------------------------------------------------
 #### Definição do tipo BigNumber
->  número positivo :
+
+> 
+>**Número positivo :**
 >
->`Positive[3]`
+> `Positive[3]`
 >
->Número Negativo : 
+> **Número Negativo :**
 >
-> `Negative[3]
+> `Negative[3]`
 
 ------------------------------------------------
 #### Operator Overload
 
 > Com o intuito de tornar o código mais compreensível e legível, foi feito o overload aos operadores <= (**instance Ord BigNumber**)
 ------------------------------------------------
-### 2 SCANNER
+### 2. SCANNER
 > Função que converte uma string em big-number
 > 
 > `scanner "1234" = Positive [4,3,2,1]`
@@ -25,7 +27,7 @@
 > `scanner "1234" = Negative [4,3,2,1]`
 
 ------------------------------------------------
-### 3 OUTPUT
+### 3. OUTPUT
 > Função que converte um Big-Number em string 
 > 
 >  `output (Positive [4,3,2,1]) = "1234"`
@@ -33,7 +35,7 @@
 >  `output (Negative [4,3,2,1]) = "-1234"`
 
 ------------------------------------------------
-### 4 SOMA
+### 4. SOMA
 
 #### Sinais : somaBN
 

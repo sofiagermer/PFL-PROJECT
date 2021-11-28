@@ -4,7 +4,13 @@
 
 ------------------------------------------------
 #### Definição do tipo BigNumber
->  O BigNumber é representado por 
+>  número positivo :
+>
+>`Positive[3]`
+>
+>Número Negativo : 
+>
+> `Negative[3]
 
 ------------------------------------------------
 #### Operator Overload
