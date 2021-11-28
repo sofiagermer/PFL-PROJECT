@@ -17,6 +17,8 @@ instance Ord BigNumber where
     | length d1 < length d2 = True
     | otherwise = False
 
+-- -------------------------------------------------------------------------------
+-- EXERCÍCIO 2.2. - Função que converte uma String em BigNumber
 auxScanner :: String -> [Int]
 auxScanner [] = []
 auxScanner (x : xs) = if fromEnum x >= 48 && fromEnum x <= 57 then (fromEnum x -48) : auxScanner xs else error "Not a valid number"
@@ -28,11 +30,8 @@ scanner s@(x : xs)
   | x == '+' = Positive (reverse (auxScanner xs))
   | otherwise = Positive (reverse (auxScanner s))
 
-isPositive :: BigNumber -> Bool
-isPositive (Positive d) = True
-isPositive (Negative d) = False
-
-
+-- -------------------------------------------------------------------------------
+-- EXERCÍCIO 2.3. - Função que converte um BigNumber em String
 intToChar :: Int -> Char
 intToChar i
   | i == 0 = '0'
@@ -56,7 +55,7 @@ output (Negative d) = "-" ++ reverse (auxOutput d)
 
 
 -- -------------------------------------------------------------------------------
--- -- Função que soma dois Big Numbers
+-- EXERCÍCIO 2.4. - Função que soma dois Big Numbers
 
 somaBNAux1 :: [Int] -> [Int] -> Int -> [Int]
 somaBNAux1 [] [] overflow = [overflow | overflow /= 0]
@@ -82,7 +81,7 @@ somaBN (Positive d1) (Negative d2) = subBN (Positive d1) (Positive d2)
 somaBN (Negative d1) (Positive d2) = subBN (Positive d2) (Positive d1)
 
 -- -------------------------------------------------------------------------------
--- --Função que subtrai dois BigNumbers
+-- EXERCÍCIO 2.5 Função que subtrai dois BigNumbers
 subAux1 :: [Int] -> [Int] -> Int -> [Int]
 subAux1 [] [] overflow = [overflow | overflow /= 0]
 subAux1 el [] overflow = el
@@ -114,7 +113,7 @@ subBN (Negative d1) (Negative d2)
   | otherwise = Negative (subBNAux d2 d1)
 
 -- -------------------------------------------------------------------------------
--- --Função que subtrai dois BigNumbers
+-- EXERCÍCIO 2.6 Função que subtrai dois BigNumbers
 mulAux1 :: [Int] -> Int -> [Int]
 mulAux1 xs el = map (* el) xs
 
@@ -132,11 +131,7 @@ mulBN (Positive d1) (Negative d2) = Negative (mulAux2 d1 d2 0 (length d2))
 mulBN (Negative d1) (Positive d2) = Negative (mulAux2 d1 d2 0 (length d2))
 
 -- -------------------------------------------------------------------------------
-
--- divBN :: BigNumber -> BigNumber -> BigNumber
-
--- divBN (BigNumber s1 d1) (BigNU)
-
+-- EXERCÍCIO 2.6 Função que subtrai dois BigNumbers
 divBNrecursive :: BigNumber ->BigNumber-> BigNumber -> BigNumber -> (BigNumber, BigNumber)
 divBNrecursive r d q s= if r >= d then divBNrecursive (subBN r d) d (somaBN q (Positive [1])) s else (mulBN q s, r)
 
@@ -147,10 +142,10 @@ divBN (Positive d1) (Negative d2) = divBNrecursive (Positive d1) (Positive d2) (
 divBN (Negative d1) (Negative d2) = divBNrecursive (Positive d1) (Positive d2) (Positive [0]) (Positive [1])
 
 -- -------------------------------------------------------------------------------
+-- EXERCÍCIO 2.7 Função que subtrai dois BigNumbers
 getBigNumberDigits :: BigNumber -> [Int]
 getBigNumberDigits (Positive d1) = d1
 getBigNumberDigits (Negative d1) = d1
--- -------------------------------------------------------------------------------
 
 safeDivBN :: BigNumber -> BigNumber -> Maybe(BigNumber,BigNumber)
 safeDivBN numerador denominador
