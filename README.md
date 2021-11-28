@@ -5,6 +5,7 @@
 ------------------------------------------------
 #### Definição do tipo BigNumber
 
+> Um data type em que os dígitos de um numero são armazenados numa lista (em ordem inversa) e que pode ser positivo, Positive, ou negativo, Negative.
 > 
 >**Número positivo :**
 >

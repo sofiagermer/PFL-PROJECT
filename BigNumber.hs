@@ -1,10 +1,15 @@
 module BigNumber (BigNumber (Positive, Negative), scanner, output, somaBN, somaBNAux, subBN, subBNAux, mulBN, divBN) where
 
+-- -------------------------------------------------------------------------------
+-- EXERCÍCIO 2.1. - Definição do tipo BigNumber
+
 data BigNumber
   = Positive [Int]
   | Negative [Int]
   deriving (Show, Eq)
 
+-- -------------------------------------------------------------------------------
+-- Para facilitar futuras funções
 instance Ord BigNumber where
   Negative d1 <= Positive d2 = True
   Positive d1 <= Negative d2 = False
