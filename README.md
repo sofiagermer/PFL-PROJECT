@@ -7,7 +7,7 @@
 
 > Com o intuito de tornar o código mais compreensível e legível, foi feito o overload aos operadores <= (**instance Ord BigNumber**)
 ------------------------------------------------
-### SCANNER
+### 2 SCANNER
 > Função que converte uma string em big-number
 > 
 > `scanner "1234" = Positive [4,3,2,1]`
@@ -15,7 +15,7 @@
 > `scanner "1234" = Negative [4,3,2,1]`
 
 ------------------------------------------------
-### OUTPUT
+### 3 OUTPUT
 > Função que converte um Big-Number em string 
 > 
 >  `output (Positive [4,3,2,1]) = "1234"`
@@ -23,7 +23,7 @@
 >  `output (Negative [4,3,2,1]) = "-1234"`
 
 ------------------------------------------------
-### SOMA
+### 4 SOMA
 
 #### Sinais : somaBN
 
@@ -88,7 +88,7 @@
 > `somaBN (Positive[8])(Positive[2]) = Positive [0,1]`
 
 ------------------------------------------------
-### 2 . SUBTRAÇÃO
+### 5 . SUBTRAÇÃO
 
 #### Sinais
 > __1. Subtração de um BigNumber Positivo por um Negativo__  
@@ -201,7 +201,7 @@
 
 
 ------------------------------------------------
-#### 4. DIVISÃO
+### 4. DIVISÃO
 
 #### Sinais
 
@@ -283,10 +283,6 @@
 > 	Implementação do cálculo do enésimo número de Fibonacci com auxílio de uma lista infinita com todos os números de Fibonnacci, usando **zipWith**
 > 
 > 	Retorna elemento de ordem n
-> 		
-
-
-
 
 ------------------------------------------------
 
@@ -296,6 +292,18 @@
 >		**Compare as resoluções das alíneas 1 e 3** com tipos (Int -> Int), (Integer ->
 Integer) e (BigNumber -> BigNumber), comparando a sua aplicação a números grandes
 e verificando qual o maior número que cada uma aceita como argumento.
+
+|      Tipo        |    Número           | Execution Time      |
+| ---------------- |-------------------- |-------------------- |
+| (Int -> Int)     | 10   |              0.01 secs                      |
+|(Integer -> Integer)|   10  |                           |  
+|(BigNumber -> BigNumber)|   10  |                            |  
+| (Int -> Int)     | 20   |                                    |
+|(Integer -> Integer)|   20  |           0.02 secs                  |  
+|(BigNumber -> BigNumber)|   20  |                            | 
+| (Int -> Int)     | 80   |                                    |
+|(Integer -> Integer)|   80  |                            |  
+|(BigNumber -> BigNumber)|   80  |                            | 
 
 ------------------------------------------------
 | Name             | E-Mail              |
