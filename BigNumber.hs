@@ -15,8 +15,8 @@ instance Ord BigNumber where
   Positive d1 <= Negative d2 = False
   Negative d1 <= Negative d2
     | length d1 == length d2 = reverse d1 > reverse d2
-    | length d1 < length d2 = True
-    | otherwise = False
+    | length d1 < length d2 = False
+    | otherwise = True
   Positive d1 <= Positive d2
     | length d1 == length d2 = reverse d1 < reverse d2
     | length d1 < length d2 = True

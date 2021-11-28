@@ -19,6 +19,8 @@
 #### Operator Overload
 
 > Com o intuito de tornar o código mais compreensível e legível, foi feito o overload aos operadores <= (**instance Ord BigNumber**)
+> 
+> 
 ------------------------------------------------
 ### 2. SCANNER
 > Função que converte uma string em big-number
@@ -159,10 +161,6 @@
 > **4. Listas de Dígitos de BigNumber1 e BigNumber2 com mesmo tamanho e valor absoluto de BigNumber1 inferior ao de BigNumber2**
 > 
 > `subBN (Positive[0,2])(Positive[0,3]) = Negative[0,1]`
-
-
-
-#### Diminuição das casas 
 
 ------------------------------------------------
 ### 3. MULTIPLICAÇÃO
