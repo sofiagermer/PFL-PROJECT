@@ -10,7 +10,7 @@ fibRec n =
 -- -------------------------------------------------------------------------------
 --EX 1.2
 
-fibLista :: (Integral a) => a -> a
+fibLista :: Integer -> Integer 
 fibLista n = last (fibListaAux1 n)
 
 
