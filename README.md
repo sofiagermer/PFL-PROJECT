@@ -3,7 +3,7 @@
 ## BigNumber.hs
 
 ------------------------------------------------
-#### Definição do tipo BigNumber
+#### 1. Definição do tipo BigNumber
 
 > Um data type em que os dígitos de um numero são armazenados numa lista (em ordem inversa) e que pode ser positivo, Positive, ou negativo, Negative.
 > 
@@ -16,7 +16,7 @@
 > `Negative[3]`
 
 ------------------------------------------------
-#### Defining a custom Ord instance
+#### Definição de custom Ord instance
 
 > Com o intuito de tornar o código mais compreensível e legível, foi feito o overload aos operadores <= (**instance Ord BigNumber**)
 > 
@@ -51,8 +51,9 @@
 > 2. Se o comprimento de BigNumber1 menor que BigNumber2 retorna False
 > 
 > 3. Em todos os outros casos True
+
 ------------------------------------------------
-### 2. SCANNER
+### 2. Scanner
 > Função que converte uma string em big-number
 > 
 > `scanner "1234" = Positive [4,3,2,1]`
@@ -60,7 +61,7 @@
 > `scanner "1234" = Negative [4,3,2,1]`
 
 ------------------------------------------------
-### 3. OUTPUT
+### 3. Output
 > Função que converte um Big-Number em string 
 > 
 >  `output (Positive [4,3,2,1]) = "1234"`
@@ -68,7 +69,7 @@
 >  `output (Negative [4,3,2,1]) = "-1234"`
 
 ------------------------------------------------
-### 4. SOMA
+### 4. Soma
 
 #### Sinais : somaBN
 
