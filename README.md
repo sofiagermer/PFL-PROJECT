@@ -217,10 +217,12 @@
 ------------------------------------------------
 ## Fib.hs
 
-### Função recursiva : fibRec
+### Cálculo do enésimo número de Fibonacci com Integers
+
+#### Função recursiva : fibRec
 > Implementação recursiva do cálculo do enésimo número de Fibonacci
 
-### Otimização da função anterior : fibLista
+#### Otimização da função anterior : fibLista
 > Implementação otimizada da versão recursiva do cálculo do enésimo número de Fibonacci (**programação dinâmica**)
 > 
 > Recorreu- se a uma lista de resultados parciais tal que (lista !! i) contém o número de Fibonacci de ordem i
@@ -231,7 +233,34 @@
 > 
 > 3. **fibListaAux**
 
-### Lista infinita com todos os números de Fibonnaci e returnar elemento n
+#### Lista infinita com todos os números de Fibonnaci e returnar elemento n
+> Implementação do cálculo do enésimo número de Fibonacci com auxílio de uma lista infinita com todos os números de Fibonnacci
+> 
+> Retorna elemento de ordem n
+
+### Cálculo do enésimo número de Fibonacci com BigNumbers
+
+#### Função recursiva : fibRecBN
+> Implementação recursiva do cálculo do enésimo número de Fibonacci
+
+#### Otimização da função anterior : fibListaBN
+> Implementação otimizada da versão recursiva do cálculo do enésimo número de Fibonacci (**programação dinâmica**)
+> 
+> Recorreu- se a uma lista de resultados parciais tal que (lista !! i) contém o número de Fibonacci de ordem i
+> 
+> 1. **fibListaBN** 
+> 
+> São ignorados os números negativos (returnado BigNumber = Positive [0]) e efetuado o cálculo do respetivo número de Fibonacci para os restantes casos
+> 
+> 2. **fibListaAux1BN**
+> 
+> Como os próprios "números" no BigNumber são listas, a lista com os números de fibonnacci é , portanto, uma lista de listas.
+> 
+> Restante lógia do algoritmo semelhante à feita com Integers (fibListaAux1)
+> 
+> 3. **fibListaAuxBN**
+
+#### Lista infinita com todos os números de Fibonnaci e returnar elemento n : fibListaInfinita
 > Implementação do cálculo do enésimo número de Fibonacci com auxílio de uma lista infinita com todos os números de Fibonnacci
 > 
 > Retorna elemento de ordem n
