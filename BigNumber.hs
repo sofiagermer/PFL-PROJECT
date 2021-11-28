@@ -26,9 +26,6 @@ isPositive :: BigNumber -> Bool
 isPositive (Positive d) = True
 isPositive (Negative d) = False
 
-isNegative :: BigNumber -> Bool
-isNegative (Positive d) = False
-isNegative (Negative d) = True
 
 intToChar :: Int -> Char
 intToChar i
@@ -151,16 +148,19 @@ mulBN (Negative d1) (Positive d2) = Negative (mulAux2 d1 d2 0 (length d2))
 
 -- divBN (BigNumber s1 d1) (BigNU)
 
-divBNrecursive :: BigNumber -> BigNumber -> BigNumber -> (BigNumber, BigNumber)
-divBNrecursive r d q = if r >= d then divBNrecursive (subBN r d) d (somaBN q (Positive [1])) else (q, r)
+divBNrecursive :: BigNumber ->BigNumber-> BigNumber -> BigNumber -> (BigNumber, BigNumber)
+divBNrecursive r d q s= if r >= d then divBNrecursive (subBN r d) d (somaBN q (Positive [1])) s else (mulBN q s, r)
 
 divBN :: BigNumber -> BigNumber -> (BigNumber, BigNumber)
-divBN n d = divBNrecursive n d (Positive [0])
-
+divBN (Positive d1) (Positive d2) = divBNrecursive (Positive d1) (Positive d2) (Positive [0]) (Positive [1])
+divBN (Negative d1) (Positive d2) = divBNrecursive (Positive d1) (Positive d2) (Positive [0]) (Negative [1])
+divBN (Positive d1) (Negative d2) = divBNrecursive (Positive d1) (Positive d2) (Positive [0]) (Negative [1])
+divBN (Negative d1) (Negative d2) = divBNrecursive (Positive d1) (Positive d2) (Positive [0]) (Positive [1])
+ 
 -- -------------------------------------------------------------------------------
 
-saveDivBN :: BigNumber -> BigNumber -> Maybe(BigNumber,BigNumber)
-saveDivBN numerador denominador
+safeDivBN :: BigNumber -> BigNumber -> Maybe(BigNumber,BigNumber)
+safeDivBN numerador denominador
   | head(getBigNumberDigits denominador) == 0 && length(getBigNumberDigits(denominador)) == 1 = Nothing
   | otherwise = Just (divBN numerador denominador)
 
