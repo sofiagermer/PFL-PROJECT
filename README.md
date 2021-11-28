@@ -108,23 +108,23 @@
 
 ##### 2.3 Quando o valore absoluto dos BigNumbers é Diferente
 
-> 1. **Lista de Dígitos de BigNumber1 maior que lista de Dígitos de BigNumber2**
+> **1. Lista de Dígitos de BigNumber1 maior que lista de Dígitos de BigNumber2**
 > 
 > Neste caso, tal como na soma, enchemos BigNumber2 com zeros não significativos de forma a ambos ficarem com o mesmo número de dígitos
 > 
 > `subBN (Positive[0,3])(Positive[2]) = Positive[8,2]`
 > 
-> 2. **Lista de Dígitos de BigNumber1 menor que lista de Dígitos de BigNumber2**
+> **2. Lista de Dígitos de BigNumber1 menor que lista de Dígitos de BigNumber2**
 > 
 > Neste caso, tal como na soma, enchemos BigNumber1 com zeros não significativos de forma a ambos ficarem com o mesmo número de dígitos
 > 
 > `subBN (Positive[3])(Positive[0,2]) = Negative[7,1]`
 > 
-> 3. **Listas de Dígitos de BigNumber1 e BigNumber2 com mesmo tamanho e valor absoluto de BigNumber1 superior ao de BigNumber2**
+> **3. Listas de Dígitos de BigNumber1 e BigNumber2 com mesmo tamanho e valor absoluto de BigNumber1 superior ao de BigNumber2**
 > 
 > `subBN (Positive[0,3])(Positive[0,2]) = Positive[0,1]`
 > 
-> 4. **Listas de Dígitos de BigNumber1 e BigNumber2 com mesmo tamanho e valor absoluto de BigNumber1 inferior ao de BigNumber2**
+> **4. Listas de Dígitos de BigNumber1 e BigNumber2 com mesmo tamanho e valor absoluto de BigNumber1 inferior ao de BigNumber2**
 > 
 > `subBN (Positive[0,2])(Positive[0,3]) = Negative[0,1]`
 
@@ -159,10 +159,48 @@
 >  
 >  `mulAux1 [1,2,3,4] 2 = [2,4,6,8]`
 
-#### Multiplicação das listas de dígitos de BigNumbers : muAUX2
+#### Multiplicação das listas de dígitos de BigNumbers : mulAux2
+
+> **1. Multiplicação de uma lista por outra com tamanho superior a 1** 
+> 
+> Por cada dígito da segunda lista, multiplicamos todos os dígitos da primeira lista por esse valor
+> 
+> Variável **counter** inicializada a 0, sendo incrementada (+1) por cada chamada à função mulAux1
+> 
+> Depois de se efetuar a multiplicação da primeira lista por cada elemento da segunda, somam se todas as listas obtidas com o auxílio da função **somaBN** explicada anteriormente
+> 
+>  ` mulBN (Positive [1,3]) (Positive [2,1]) = Positive [2,7,3] `
+>  
+>  **NOTA** : 
+>		Neste exemplo multiplicamos [1,3] por [1] = [1,3] e depois [1,3] por [2] = [2,6]
+>  		Como é iterado duas vezes [1,3] é enchido por 1 zero ficando [0,1,3] e [2,6] permanece igual
+>  		No final somam- se as duas listas [1,3,0] + [2,6] = [2,7,3]
 
 ------------------------------------------------
+#### 4. DIVISÃO
 
+#### Sinais
+
+> **1. Divisão de BigNumbers com o mesmo sinal**
+> 
+> `divBN (Positive [0,2]) (Positive [4]) = (Positive [5],Positive [0])`
+> 
+> `divBN (Negative [0,2]) (Negative [4]) = (Positive [5],Positive [0])`
+> 
+> **2. Divisão de BigNumbers com sinais diferentes**
+> 
+> `divBN (Positive [0,2]) (Negative [4]) = (Negative [5],Positive [0])`
+> 
+> `divBN (Negative [0,2]) (Positive [4]) = (Negative [5],Positive [0])`
+
+#### Algoritmo de Divisão
+> A divisão implementada baseia-se no seguinte algoritmo:
+
+<code>
+
+</code>. 
+
+------------------------------------------------
 ## Fib.hs
 
 ### Função recursiva : fibRec
