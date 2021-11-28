@@ -1,4 +1,4 @@
-module BigNumber (BigNumber (Positive, Negative), scanner, output, somaBN, subBN, mulBN, divBN) where
+module BigNumber (BigNumber (Positive, Negative), scanner, output, somaBN, somaBNAux, subBN, subBNAux, mulBN, divBN) where
 
 data BigNumber
   = Positive [Int]
@@ -8,8 +8,14 @@ data BigNumber
 instance Ord BigNumber where
   Negative d1 <= Positive d2 = True
   Positive d1 <= Negative d2 = False
-  Negative d1 <= Negative d2 = length d1 <= length d2 || reverse d1 <= reverse d2
-  Positive d1 <= Positive d2 = length d1 <= length d2 && reverse d1 <= reverse d2
+  Negative d1 <= Negative d2
+    | length d1 == length d2 = reverse d1 > reverse d2
+    | length d1 < length d2 = True
+    | otherwise = False
+  Positive d1 <= Positive d2
+    | length d1 == length d2 = reverse d1 < reverse d2
+    | length d1 < length d2 = True
+    | otherwise = False
 
 auxScanner :: String -> [Int]
 auxScanner [] = []
@@ -48,23 +54,6 @@ output :: BigNumber -> String
 output (Positive d) = reverse (auxOutput d)
 output (Negative d) = "-" ++ reverse (auxOutput d)
 
--- -------------------------------------------------------------------------------
---Funções auxiliares que devolvem lista maior
-
-listaMaiorAux1 :: [Int] -> [Int] -> Int
-listaMaiorAux1 [] [] = 3
-listaMaiorAux1 l1 l2
-  | length l1 > length l2 = 1
-  | length l2 > length l1 = 2
-  | last l1 > last l2 = 1
-  | last l2 > last l1 = 2
-  | otherwise = listaMaiorAux1 (init l1) (init l2)
-
-listaMaior :: [Int] -> [Int] -> [Int]
-listaMaior l1 l2
-  | listaMaiorAux1 l1 l2 == 1 = l1
-  | listaMaiorAux1 l1 l2 == 2 = l2
-  | otherwise = l1
 
 -- -------------------------------------------------------------------------------
 -- -- Função que soma dois Big Numbers
@@ -99,25 +88,30 @@ subAux1 [] [] overflow = [overflow | overflow /= 0]
 subAux1 el [] overflow = el
 subAux1 [] el overflow = el
 subAux1 (x : xs) (y : ys) overflow
-  | x < (y + overflow) = ((10 + x) - y - overflow) : subAux1 xs ys 1
+  | x < y + overflow = (10 + x - y - overflow) : subAux1 xs ys 1
   | x == y + overflow && null xs = [] --para não aparecer 0 no início do número
   | abs (x - y - overflow) < 10 = (x - y - overflow) : subAux1 xs ys 0
   | otherwise = []
 
 -- para quando somamos numeros com quantidades diferentes de dígitos : x -y
-subBNAux :: [Int] -> [Int] -> BigNumber
+subBNAux :: [Int] -> [Int] -> [Int]
 subBNAux y1 y2
-  | length y1 > length y2 = Positive (subAux1 y1 (y2 ++ replicate (length y1 - length y2) 0) 0)
-  | length y2 > length y1 = Negative (subAux1 y2 (y1 ++ replicate (length y2 - length y1) 0) 0)
-  | listaMaior y1 y2 == y1 = Positive (subAux1 y1 y2 0)
-  | listaMaior y1 y2 == y2 = Negative (subAux1 y2 y1 0)
-  | otherwise = Positive []
+  | length y1 > length y2 =  subAux1 y1 (y2 ++ replicate (length y1 - length y2) 0) 0
+  | length y2 > length y1 =  subAux1 y2 (y1 ++ replicate (length y2 - length y1) 0) 0
+  | otherwise =  subAux1 y1 y2 0
 
 subBN :: BigNumber -> BigNumber -> BigNumber
 subBN (Positive d1) (Negative d2) = Positive (somaBNAux d1 d2)
 subBN (Negative d1) (Positive d2) = Negative (somaBNAux d1 d2)
-subBN (Positive d1) (Positive d2) = if Positive d1 == Positive d2 then Positive [0] else subBNAux d1 d2
-subBN (Negative d1) (Negative d2) = if Positive d1 == Positive d2 then Positive [0] else subBNAux d2 d1
+subBN (Positive d1) (Positive d2)
+  | Positive d1 == Positive d2 = Positive [0]
+  | Positive d1 > Positive d2 = Positive (subBNAux d1 d2) -- valor absoluto de d1 superior ao de d2
+  | Positive d2 > Positive d1 = Negative (subBNAux d2 d1)
+  | otherwise = Negative (subBNAux d2 d1)
+subBN (Negative d1) (Negative d2)
+  | Positive d1 == Positive d2 = Positive [0]
+  | Positive d2 > Positive d1 = Positive (subBNAux d2 d1)
+  | otherwise = Negative (subBNAux d2 d1)
 
 -- -------------------------------------------------------------------------------
 -- --Função que subtrai dois BigNumbers
@@ -151,7 +145,7 @@ divBN (Positive d1) (Positive d2) = divBNrecursive (Positive d1) (Positive d2) (
 divBN (Negative d1) (Positive d2) = divBNrecursive (Positive d1) (Positive d2) (Positive [0]) (Negative [1])
 divBN (Positive d1) (Negative d2) = divBNrecursive (Positive d1) (Positive d2) (Positive [0]) (Negative [1])
 divBN (Negative d1) (Negative d2) = divBNrecursive (Positive d1) (Positive d2) (Positive [0]) (Positive [1])
- 
+
 -- -------------------------------------------------------------------------------
 getBigNumberDigits :: BigNumber -> [Int]
 getBigNumberDigits (Positive d1) = d1

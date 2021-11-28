@@ -71,7 +71,7 @@
 ------------------------------------------------
 ### 2 . SUBTRAÇÃO
 
-##### Sinais
+#### Sinais
 > __1. Subtração de um BigNumber Positivo por um Negativo__  
 > 
 > Neste caso o sinal da operação é Positivo e é efetuada a soma dos valores absolutos dos BigNumbers
@@ -94,9 +94,9 @@
 > 
 > Quando o caso 2.2 não se aplica, procedimento 2.3 é aplicado 
 > 
-> `subBN (Negative[3])(Positive[2]) = Negative[2]`
+> `subBN (Negative[3])(Positive[2]) = Negative[5]`
 
-##### 2.2 Quando o resultado da subtração é 0
+#### Quando o resultado da subtração é 0
 
 > **1. Subtração de BigNumbers com sinal e valor absoluto iguais**  
 > 
@@ -106,7 +106,7 @@
 > 
 > `subBN (Negative[3])(Negative[3]) = Positive[0]`
 
-##### 2.3 Quando o valore absoluto dos BigNumbers é Diferente
+#### Quando o valore absoluto dos BigNumbers é Diferente
 
 > **1. Lista de Dígitos de BigNumber1 maior que lista de Dígitos de BigNumber2**
 > 
@@ -130,7 +130,7 @@
 
 
 
-##### Diminuição das casas 
+#### Diminuição das casas 
 
 ------------------------------------------------
 ### 3. MULTIPLICAÇÃO
