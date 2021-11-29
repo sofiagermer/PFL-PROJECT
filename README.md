@@ -18,23 +18,23 @@
 ------------------------------------------------
 #### Definição de custom Ord instance
 
-> Com o intuito de tornar o código mais compreensível e legível, foi feito o overload aos operadores <= (**instance Ord BigNumber**)
+> Com o intuito de tornar o código mais compreensível e legível, foi feito o overload aos operadores <= (**instance Ord BigNumber**).
 > 
 > **1 BigNumber Negativo e 1 BigNumber Positivo**
 > 
-> Retorna sempre True porque um número negativo é sempre menor que um positivo
+> Retorna sempre True porque um número negativo é sempre menor que um positivo.
 > 
 > `Negative [3] < Positive [0,1] = True`
 > 
 > **1 BigNumber Positivo e 1 BigNumber Negativo**
 > 
-> Retorna sempre False porque um número positivo é sempre maior que um positivo
+> Retorna sempre False porque um número positivo é sempre maior que um positivo.
 > 
 > `Positive [3] < Negative [0,1] = False`
 > 
 > **2 BigNumbers Negativos:** 
 > 
-> 1. Se tiverem o mesmo comprimento é comparado o valor das listas invertidas 
+> 1. Se tiverem o mesmo comprimento é comparado o valor das listas invertidas .
 > 
 > `Negative [0,3] < Negative [0,1] = True`
 > 
@@ -44,7 +44,7 @@
 > 
 > **2 BigNumbers Positivos**
 > 
-> 1. Se tiverem o mesmo comprimento é comparado o valor das listas invertidas 
+> 1. Se tiverem o mesmo comprimento é comparado o valor das listas invertidas. 
 > 
 > `Positive [0,3] < Positive [0,1] = False`
 > 
@@ -54,7 +54,7 @@
 
 ------------------------------------------------
 ### 2. Scanner
-> Função que converte uma string em big-number
+> Função que converte uma string em big-number.
 > 
 > `scanner "1234" = Positive [4,3,2,1]`
 > 
@@ -62,7 +62,7 @@
 
 ------------------------------------------------
 ### 3. Output
-> Função que converte um Big-Number em string 
+> Função que converte um Big-Number em string. 
 > 
 >  `output (Positive [4,3,2,1]) = "1234"`
 >  
@@ -75,25 +75,25 @@
 
 > **1. Soma de 2 BigNumbers Positivos** 
 > 
-> Resultado Positivo e é efetuada a soma ao respetivo valor absoluto do BigNumber 
+> Resultado Positivo e é efetuada a soma ao respetivo valor absoluto do BigNumber. 
 >
 > `somaBN (Positive[3])(Positive[2]) = Positive [5]`
 >
 > **2. Soma de 2 BigNumbers negativos** 
 > 
->Resultado Negativo e é efetuada a soma ao respetivo valor absoluto do BigNumber 
+>Resultado Negativo e é efetuada a soma ao respetivo valor absoluto do BigNumber. 
 >
 >`somaBN (Negative[3])(Negative[2]) = Negative [5]`
 >
 >**3. Soma de 1 BigNumber Positivo com 1 BigNumber Negativo** 
 >
-> É efetuada a subtração do BigNumber Positivo pelo BigNumber Negativo, considerando ambos os BigNumbers Positivos
+> É efetuada a subtração do BigNumber Positivo pelo BigNumber Negativo, considerando ambos os BigNumbers Positivos.
 >
 >`somaBN (Positive[3])(Negative[2]) = Positive [1]`
 >
 > **4. Soma de 1 BigNumber Negativo com 1 BigNumber Negativo**
 >
-> É efetuada a subtração do BigNumber Positivo pelo BigNumber Negativo, considerando ambos os BigNumbers Positivos
+> É efetuada a subtração do BigNumber Positivo pelo BigNumber Negativo, considerando ambos os BigNumbers Positivos.
 >
 >`somaBN (Negative[3])(Positive[2]) = Negative [1]`
 
@@ -101,7 +101,7 @@
 
 > **5. Soma de BigNumber1 com BigNumber2 , onde BigNumber1 tem mais dígitos** 
 > 
-> Enchemos BigNumber2 com zeros não significativos de forma a ambos ficarem com o mesmo número de dígitos
+> Enchemos BigNumber2 com zeros não significativos de forma a ambos ficarem com o mesmo número de dígitos.
 >    
 > Soma efetuada normalmente
 > 
@@ -110,7 +110,7 @@
 > Enchemos BigNumber1 com zeros não significativos de forma a ambos ficarem com o mesmo número de dígitos.
 > 
 > Soma efetuada normalmente
-> 
+
 
 #### Soma de números com número igual de dígitos : somaBNAux1
 > **7. Soma normal de duas listas de Dígitos** 
@@ -129,35 +129,35 @@
 > 
 > **9. Resultado da soma tem número superior de dígitos a qualquer um dos números**
 > 
-> Quando o o "overflow" da soma é diferente de 0, acrescenta esse dígito no campo mais significativo do número (ex: 8 + 2 = 10) -> overflow = 1
+> Quando o o "overflow" da soma é diferente de 0, acrescenta esse dígito no campo mais significativo do número (ex: 8 + 2 = 10) -> overflow = 1.
 > 
 > `somaBN (Positive[8])(Positive[2]) = Positive [0,1]`
 
 ------------------------------------------------
-### 5 . SUBTRAÇÃO
+### 5 . Subtração
 
 #### Sinais
 > __1. Subtração de um BigNumber Positivo por um Negativo__  
 > 
-> Neste caso o sinal da operação é Positivo e é efetuada a soma dos valores absolutos dos BigNumbers
+> Neste caso o sinal da operação é Positivo e é efetuada a soma dos valores absolutos dos BigNumbers.
 > 
 > `subBN (Positive[3])(Negative[2]) = Positive[5]`
 > 
 > __2. Subtração de um BigNumber Positivo por um Negativo__  
 > 
-> Neste caso o sinal da operação é Negativo e é efetuada a soma dos valores absolutos dos BigNumbers
+> Neste caso o sinal da operação é Negativo e é efetuada a soma dos valores absolutos dos BigNumbers.
 > 
 > `subBN (Negative[3])(Positive[2]) = Negative[5]`
 > 
 > __3. Subtração entre 2 BigNumbers Positivos__ 
 > 
-> Quando o caso 2.2 não se aplica, procedimento 2.3 é aplicado 
+> Quando o caso 2.2 não se aplica, procedimento 2.3 é aplicado. 
 > 
 > `subBN (Positive[3])(Positive[2]) = Positive[1]`
 > 
 > __4. Soma de 2 BigNumber Negativos__ 
 > 
-> Quando o caso 2.2 não se aplica, procedimento 2.3 é aplicado 
+> Quando o caso 2.2 não se aplica, procedimento 2.3 é aplicado. 
 > 
 > `subBN (Negative[3])(Positive[2]) = Negative[5]`
 
@@ -171,17 +171,17 @@
 > 
 > `subBN (Negative[3])(Negative[3]) = Positive[0]`
 
-#### Quando o valore absoluto dos BigNumbers é Diferente
+#### Quando o valor absoluto dos BigNumbers é diferente
 
 > **1. Lista de Dígitos de BigNumber1 maior que lista de Dígitos de BigNumber2**
 > 
-> Neste caso, tal como na soma, enchemos BigNumber2 com zeros não significativos de forma a ambos ficarem com o mesmo número de dígitos
+> Neste caso, tal como na soma, enchemos BigNumber2 com zeros não significativos de forma a ambos ficarem com o mesmo número de dígitos.
 > 
 > `subBN (Positive[0,3])(Positive[2]) = Positive[8,2]`
 > 
 > **2. Lista de Dígitos de BigNumber1 menor que lista de Dígitos de BigNumber2**
 > 
-> Neste caso, tal como na soma, enchemos BigNumber1 com zeros não significativos de forma a ambos ficarem com o mesmo número de dígitos
+> Neste caso, tal como na soma, enchemos BigNumber1 com zeros não significativos de forma a ambos ficarem com o mesmo número de dígitos.
 > 
 > `subBN (Positive[3])(Positive[0,2]) = Negative[7,1]`
 > 
@@ -194,13 +194,13 @@
 > `subBN (Positive[0,2])(Positive[0,3]) = Negative[0,1]`
 
 ------------------------------------------------
-### 3. MULTIPLICAÇÃO
+### 3. Multiplicação
 
 #### Sinais : mulBN
 
 > __1. Multiplicação de BigNumbers com o mesmo sinal__
 > 
-> Resultado tem sinal Positivo e é efetuada a multiplicação do valor absoluto do BigNumber
+> Resultado tem sinal Positivo e é efetuada a multiplicação do valor absoluto do BigNumber.
 > 
 > `mulBN (Positive[3])(Positive[3]) = Positive[9]`
 > 
@@ -208,7 +208,7 @@
 > 
 > __1. Multiplicação de BigNumbers sinais diferentes__
 > 
-> Resultado tem sinal Positivo e é efetuada a multiplicação do valor absoluto do BigNumber
+> Resultado tem sinal Positivo e é efetuada a multiplicação do valor absoluto do BigNumber.
 > 
 >  `mulBN (Positive[3])(Negative[3]) = Negative[9]`
 >  
@@ -216,7 +216,7 @@
 
 #### Multiplicação de uma lista de dígitos por um valor : mulAux1
 
->  Recorrendo à função **map** do prelúdio, multiplicamos cada dígito dessa lista por esse valor
+>  Recorrendo à função **map** do prelúdio, multiplicamos cada dígito dessa lista por esse valor.
 >  
 >  `mulAux1 [1,2,3,4] 2 = [2,4,6,8]`
 
@@ -224,11 +224,11 @@
 
 > **1. Multiplicação de uma lista por outra com tamanho superior a 1** 
 > 
-> Por cada dígito da segunda lista, multiplicamos todos os dígitos da primeira lista por esse valor
+> Por cada dígito da segunda lista, multiplicamos todos os dígitos da primeira lista por esse valor.
 > 
-> Variável **counter** inicializada a 0, sendo incrementada (+1) por cada chamada à função mulAux1
+> Variável **counter** inicializada a 0, sendo incrementada (+1) por cada chamada à função mulAux1.
 > 
-> Depois de se efetuar a multiplicação da primeira lista por cada elemento da segunda, somam se todas as listas obtidas com o auxílio da função **somaBN** explicada anteriormente
+> Depois de se efetuar a multiplicação da primeira lista por cada elemento da segunda, somam se todas as listas obtidas com o auxílio da função **somaBN** explicada anteriormente.
 > 
 >  ` mulBN (Positive [1,3]) (Positive [2,1]) = Positive [2,7,3] `
 >  
@@ -243,7 +243,7 @@
 
 
 ------------------------------------------------
-### 4. DIVISÃO
+### 4. Divisão
 
 #### Sinais
 
@@ -281,12 +281,12 @@
 ### Cálculo do enésimo número de Fibonacci com Integers
 
 #### Função recursiva : fibRec
-> Implementação recursiva do cálculo do enésimo número de Fibonacci
+> Implementação recursiva do cálculo do enésimo número de Fibonacci.
 
 #### Otimização da função anterior : fibLista
-> Implementação otimizada da versão recursiva do cálculo do enésimo número de Fibonacci (**programação dinâmica**)
+> Implementação otimizada da versão recursiva do cálculo do enésimo número de Fibonacci (**programação dinâmica**).
 > 
-> Recorreu- se a uma lista de resultados parciais tal que (lista !! i) contém o número de Fibonacci de ordem i
+> Recorreu- se a uma lista de resultados parciais tal que (lista !! i) contém o número de Fibonacci de ordem i.
 > 
 > 1. **fibLista** 
 > 
@@ -295,41 +295,41 @@
 > 3. **fibListaAux**
 
 #### Lista infinita com todos os números de Fibonacci e returnar elemento n
-> Implementação do cálculo do enésimo número de Fibonacci com auxílio de uma lista infinita com todos os números de Fibonnacci
+> Implementação do cálculo do enésimo número de Fibonacci com auxílio de uma lista infinita com todos os números de Fibonnacci.
 > 
-> Retorna elemento de ordem n
+> Retorna elemento de ordem n.
 
 ### Cálculo do enésimo número de Fibonacci com BigNumbers
 
 #### Função recursiva : fibRecBN
-> Implementação recursiva do cálculo do enésimo número de Fibonacci
+> Implementação recursiva do cálculo do enésimo número de Fibonacci.
 
 #### Otimização da função anterior : fibListaBN
-> Implementação otimizada da versão recursiva do cálculo do enésimo número de Fibonacci (**programação dinâmica**)
+> Implementação otimizada da versão recursiva do cálculo do enésimo número de Fibonacci (**programação dinâmica**).
 > 
-> Recorreu- se a uma lista de resultados parciais tal que (lista !! i) contém o número de Fibonacci de ordem i
+> Recorreu- se a uma lista de resultados parciais tal que (lista !! i) contém o número de Fibonacci de ordem i.
 > 
 > 1. **fibListaBN** 
 > 
-> São ignorados os números negativos (returnado BigNumber = Positive [0]) e efetuado o cálculo do respetivo número de Fibonacci para os restantes casos
+> São ignorados os números negativos (returnado BigNumber = Positive [0]) e efetuado o cálculo do respetivo número de Fibonacci para os restantes casos.
 > 
 > 2. **fibListaAux1BN**
 > 
 > Como os próprios "números" no BigNumber são listas, a lista com os números de fibonacci é , portanto, uma lista de listas.
 > 
-> Restante lógia do algoritmo semelhante à feita com Integers (fibListaAux1)
+> Restante lógia do algoritmo semelhante à feita com Integers (fibListaAux1).
 > 
 > 3. **fibListaAuxBN**
 
 #### Lista infinita com todos os números de Fibonnaci e returnar elemento n : fibListaInfinita
-> 	Implementação do cálculo do enésimo número de Fibonacci com auxílio de uma lista infinita com todos os números de Fibonnacci, usando **zipWith**
+> 	Implementação do cálculo do enésimo número de Fibonacci com auxílio de uma lista infinita com todos os números de Fibonnacci, usando **zipWith**.
 > 
-> 	Retorna elemento de ordem n
+> 	Retorna elemento de ordem n.
 
 ------------------------------------------------
 
 
-### RESPOSTA A ALÍNEA 4
+### Resposta à alínea 4
 
 >		Compare as resoluções das alíneas 1 e 3 com tipos (Int-> Int), (Integer->Integer) e (BigNumber->BigNumber), comparando a sua aplicação a números grandes e verificando qual o maior número que cada uma aceita como argumento.
 
@@ -337,7 +337,7 @@
 > 
 > Integer também é um int, no entanto, não tem limitações de tamanho. Como consequência pode ser usado para representar números grandes, acabando por ser menos eficiente que uma implementação usando Int.
 > 
-> Tal como o Integer o BigNumber não tem limitações de tamanho, tendo também menos eficiência do que o Int
+> Tal como o Integer o BigNumber não tem limitações de tamanho, tendo também menos eficiência do que o Int.
 > 
 **Alínea 1 : Abordagem Recursiva** 
 
@@ -369,12 +369,12 @@
 
 > **NOTA:** Para testar o running time correu- se o código no ghci com :set +s
 
-##### Conlclusão
-> Uma abordagem recorrendo a Integer ou BigNumber será uma opção ideal quando se pretende usar números grandes
+##### Conclusão
+> Uma abordagem recorrendo a Integer ou BigNumber será uma opção ideal quando se pretende usar números grandes.
 > 
 > Atendendo aos tempos de execução concluímos que a abordagem com auxílio de lista infinita é extremamente mais eficiente que a recursiva. Aliás, no caso de Int e Integer estagna nos 0.01 secs para valores grandes.
 > 
-> Por outro lado, esta abordagem também prova ser bastante mais eficiente que a recursiva no caso dos BigNumbers. Porém, como seria de esperar, usando BigNumbers a eficiência é , por consequência, reduzida (devido às inúmeras operações realizadas em listas)
+> Por outro lado, esta abordagem também prova ser bastante mais eficiente que a recursiva no caso dos BigNumbers. Porém, como seria de esperar, usando BigNumbers a eficiência é , por consequência, reduzida (devido às inúmeras operações realizadas em listas).
 ------------------------------------------------
 | Name             | E-Mail              |
 | ---------------- |-------------------- |
