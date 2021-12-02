@@ -40,6 +40,8 @@
 > 
 > 2. Se o comprimento de BigNumber1 menor que BigNumber2 retorna False
 > 
+> `Negative [3] < Negative [0,2] = False`
+> 
 > 3. Em todos os outros casos True
 > 
 > **2 BigNumbers Positivos**
@@ -48,7 +50,9 @@
 > 
 > `Positive [0,3] < Positive [0,1] = False`
 > 
-> 2. Se o comprimento de BigNumber1 menor que BigNumber2 retorna Trye
+> 2. Se o comprimento de BigNumber1 menor que BigNumber2 retorna True
+> 
+> `Positive [3] < Positive [0,2] = True`
 > 
 > 3. Em todos os outros casos False
 
